@@ -13,8 +13,6 @@ alias fgrep='fgrep --color=always'
 alias la='ls -A'
 alias l='ls -CF'
 alias ll='ls -alXF --color=always --group-directories-first'
-# searchable view for big directories
-alias lll='ls -alXF --color=never --group-directories-first | less'
 
 alias bdd='haxelib run bdd'
 
