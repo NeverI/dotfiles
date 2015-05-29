@@ -1,0 +1,11 @@
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+alias fgrep='fgrep --color=always'
+alias ll='ls -laX --color=always --group-directories-first'
+alias lll='ls -laX --color=never --group-directories-first | less'
+alias bdd='haxelib run bdd'
+
+alias ..='cd ../..'
+alias ...='cd ../../..'
+alias ....='cd ../../../..'
+alias .....='cd ../../../../..'

@@ -4,6 +4,9 @@
 
 - link:
     ~/.config/dotfiles: ''
+    ~/.profile: profile
+    ~/.bashrc: bashrc
+    ~/.bash_logout: bash_logout
     ~/.config/liquidpromptrc: bash/liquidpromptrc
 
 - shell:
