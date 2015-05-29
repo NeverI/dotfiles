@@ -18,3 +18,6 @@ alias lll='ls -alXF --color=never --group-directories-first | less'
 
 alias bdd='haxelib run bdd'
 
+# swearing is sweet:)
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+alias FUCK='fuck'
