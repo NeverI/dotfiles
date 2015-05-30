@@ -8,6 +8,7 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.tmux.conf: tmux.conf
+    ~/.screenrc: screenrc
     ~/.config/liquidpromptrc: bash/liquidpromptrc
 
 - shell:
