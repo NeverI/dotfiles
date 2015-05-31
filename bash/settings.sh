@@ -41,11 +41,26 @@ fi
 bind '"\e[5~": history-search-backward'
 bind '"\e[6~": history-search-forward'
 
+# Change the tab key to cycle trough completions, and shift-tab for reverse
+bind 'TAB: menu-complete'
+bind '"\e[Z": "\e-1\C-i"'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+
+    complete -A directory  mkdir rmdir
+    complete -A directory   -o default cd
+    complete -f -o default -X '*.+(zip|ZIP)'  zip
+    complete -f -o default -X '!*.+(zip|ZIP)' unzip
+    complete -f -o default -X '*.+(gz|GZ)'    gzip
+    complete -f -o default -X '!*.+(gz|GZ)'   gunzip
+    complete -f -o default -X '!*.+(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
+
+    [ -f ~/.ssh/config ] && complete -W '$(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2)' ssh
+    source ~/.config/dotfiles/bash/plugins/git-completion.bash
 fi
 
 # use less as the default pager
