@@ -15,7 +15,7 @@ set -o noclobber
 shopt -s histappend
 # allow history editing before execute
 shopt -s histreedit
-# allow history verification before execute
+# allow history verification before execute (helpful for !, !!, !?)
 shopt -s histverify
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
