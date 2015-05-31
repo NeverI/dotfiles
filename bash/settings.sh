@@ -61,6 +61,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 
     [ -f ~/.ssh/config ] && complete -W '$(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2)' ssh
     source ~/.config/dotfiles/bash/plugins/git-completion.bash
+    source ~/.config/dotfiles/bash/plugins/tmux-completion.bash
 fi
 
 # use less as the default pager
