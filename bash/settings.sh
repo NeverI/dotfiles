@@ -6,15 +6,31 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# Notify of job termination immediately.
+set -o notify
+# disallow existing regular files to be overwritten by redirection of output.
+set -o noclobber
+
 # append to the history file, don't overwrite it
 shopt -s histappend
+# allow history editing before execute
+shopt -s histreedit
+# allow history verification before execute
+shopt -s histverify
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
+# try to preserves whitespaces in multiline commands in history
+shopt -s cmdhist
+shopt -s lithist
+# check command hashes in hashtable so can be faster
+shopt -s checkhash
+# try to correct minor typos
+shopt -s cdspell
+shopt -s dirspell
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
