@@ -71,3 +71,6 @@ export LESSCHARSET='utf-8'
 export LESS='-cwMR -j4 -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# reverse-i-search changed to hstr
+bind '"\C-r": "\e^ihh \n"'
