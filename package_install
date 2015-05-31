@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+packages="";
+apt_cache_update_needed=false;
+
+# $1 searched command
+command_exists() {
+    command -v "$1" >/dev/null 2>&1;
+}
+
+# $1 searched command
+# ?$2 desired package name(s) when not same as the command
+install() {
+    if command_exists "$1" ; then
+        return;
+    fi
+
+    if [ "$2" ] ; then
+        packages=" $packages $2";
+    else
+        packages=" $packages $1";
+    fi
+}
+
+# $1 searched command
+# $2 ppa name
+# ?$3 desired package name(s) when not same as the command
+install_from_ppa() {
+    if command_exists "$1" ; then
+        return;
+    fi
+
+    add-apt-repository -y "ppa:$2";
+    apt_cache_update_needed=true;
+
+    if [ "$3" ] ; then
+        packages=" $packages $3";
+    else
+        packages=" $packages $1";
+    fi
+}
+
+# $1 searched command
+# $2 path or url for the deb
+install_from_deb() {
+    if command_exists "$1" ; then
+        return;
+    fi
+
+    if [ ` echo "$2" | grep -e "https*:"` ] ; then
+        file_name=`echo "$2" | sed -r 's/.+\/(.+\.deb)/\1/'`;
+        file_name="/tmp/$file_name";
+        wget "$2" -O "$file_name";
+    else
+        file_name="$2";
+    fi
+
+    dpkg -i "$file_name";
+}
+
+source "./package_list"
+
+if $apt_cache_update_needed ; then
+    apt-get update;
+fi
+
+if [ "$packages" ] ; then
+    apt-get install $packages;
+fi

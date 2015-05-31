@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+install git
+
+# hh is a promising bash history manager
+install_from_ppa hh "ultradvorka/ppa";
+install_from_ppa node "chris-lea/node.js";
+install_from_ppa doublecmd "alexx2000/doublecmd" "doublecmd-gtk";
+
+install_from_deb steam "http://media.steampowered.com/client/installer/steam.deb";
