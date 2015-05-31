@@ -1,0 +1,36 @@
+# use Vi, not Emacs, style editing
+set editing-mode vi
+
+# show all completions as soon as I press tab, even if there's more than one
+set show-all-if-ambiguous on
+
+# keymaps for when we're in command mode (e.g., after hitting ESC)
+set keymap vi-command
+"D":kill-line
+"dw": kill-word
+"dd": kill-whole-line
+"db": backward-kill-word
+"cc": "ddi"
+"cw": "dwi"
+"cb": "dbi"
+"diw": "lbdw"
+"yiw": "lbyw"
+"ciw": "lbcw"
+"diW": "lBdW"
+"yiW": "lByW"
+"ciW": "lBcW"
+"gg": beginning-of-history
+"G": end-of-history
+
+# keymaps for when we're in insert (i.e., typing stuff in) mode
+set keymap vi-insert
+
+# pressing tab will list all completions & select the first one. Pressing it
+# again will cycle through available completions.
+TAB: menu-complete
+# shift-TAB cycles completions backward
+"\e[Z": menu-complete-backward
+
+# ctrl-p/n history search
+"\C-p": history-search-backward
+"\C-n": history-search-forward

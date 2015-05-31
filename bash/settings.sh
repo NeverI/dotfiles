@@ -37,14 +37,6 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Make page-up and page-down cycle history that maches
-bind '"\e[5~": history-search-backward'
-bind '"\e[6~": history-search-forward'
-
-# Change the tab key to cycle trough completions, and shift-tab for reverse
-bind 'TAB: menu-complete'
-bind '"\e[Z": "\e-1\C-i"'
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
