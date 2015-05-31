@@ -26,7 +26,7 @@ set ttyfast
 
 " search related things
 set incsearch " incremental search (as string is being typed)
-set highlight=ilnNs " highlight search
+set hls " highlight search
 " Remove last search highlighting, when hitting return
 nnoremap <CR> :set hlsearch!<cr>
 
