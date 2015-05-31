@@ -37,6 +37,10 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Make page-up and page-down cycle history that maches
+bind '"\e[5~": history-search-backward'
+bind '"\e[6~": history-search-forward'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
