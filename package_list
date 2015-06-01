@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
+# install with apt-get
+install vim
 install git
+install tmux
+install mongo "mongodb"
 
 # hh is a promising bash history manager
 install_from_ppa hh "ultradvorka/ppa";
