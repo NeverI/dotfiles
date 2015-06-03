@@ -10,7 +10,7 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 # immediatly flush the commands to the history, so other session can access to it
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # enable colors for hstr
 # promising history search app (https://github.com/dvorka/hstr)
