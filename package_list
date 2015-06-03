@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # install with apt-get
+install mc
 install vim
 install git
 install tmux
