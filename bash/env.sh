@@ -1,7 +1,15 @@
 export EDITOR=/usr/bin/vim
 export GIT_EDITOR=/usr/bin/vim
 
-# share the history among sessions
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+HISTIGNORE='hh *:history*:&:[ ]*:exit'
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# immediatly flush the commands to the history, so other session can access to it
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # enable colors for hstr

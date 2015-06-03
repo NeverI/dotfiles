@@ -15,8 +15,11 @@ alias l='ls -CF'
 alias ll='ls -alXF --color=always --group-directories-first'
 alias lll='ll | less'
 
-alias bdd='haxelib run bdd'
+# clear and reload the command history
+alias historyReload='history -c; history -r;'
 
 # swearing is sweet:)
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'
+
+alias bdd='haxelib run bdd'

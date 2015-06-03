@@ -1,13 +1,3 @@
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-# exlude from history
-HISTIGNORE='hh *:history'
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
 # Notify of job termination immediately.
 set -o notify
 # disallow existing regular files to be overwritten by redirection of output.
