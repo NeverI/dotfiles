@@ -22,7 +22,6 @@ set scrolloff=5 " show lines above and below cursor (when possible)
 set noshowmode " hide mode
 set backspace=indent,eol,start " allow backspacing over everything
 set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts
-set autochdir " automatically set current directory to directory of the current file
 set hidden " allow auto-hiding of edited buffers
 set history=8192 " more history
 set nojoinspaces " suppress inserting two spaces between sentences
