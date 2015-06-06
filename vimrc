@@ -44,9 +44,6 @@ set mouse+=a " enable mouse mode (scrolling, selection, etc)
 set splitbelow
 set splitright
 
-" alias unnamed register to the + register
-set clipboard=unnamedplus
-
 " use relative numbering in normal mode
 " and absolute numbering in insert mode
 set nu " number lines
