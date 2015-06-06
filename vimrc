@@ -1,10 +1,11 @@
-syntax on " turn on syntax highlighting
+" i don't need vi :)
 set nocompatible
-set showmatch " show matching braces when text indicator is over them
 
-filetype plugin indent on " enable file type detection
+" syntac highlight and auto identation
+syntax on
+filetype plugin indent on
 set autoindent
-set smartindent
+
 " use 4 spaces instead of tabs during formatting
 set expandtab
 set tabstop=4
@@ -23,6 +24,7 @@ set history=8192 " more history
 set nojoinspaces " suppress inserting two spaces between sentences
 set lazyredraw   " make vim faster(?)
 set ttyfast
+set showmatch " show matching braces when text indicator is over them
 
 " search related things
 set incsearch " incremental search (as string is being typed)
