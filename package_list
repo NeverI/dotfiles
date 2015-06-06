@@ -2,9 +2,9 @@
 
 # install with apt-get
 install mc
-install vim
 install git
 install tmux
+install vim "vim-gtk"
 install mongo "mongodb"
 
 # hh is a promising bash history manager
