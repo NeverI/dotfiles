@@ -12,7 +12,11 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-set lbr " line break
+" ensure the correct linewrap
+set lbr
+set wrap
+set nolist
+
 set ruler " show current position in file
 set scrolloff=5 " show lines above and below cursor (when possible)
 "set noshowmode " hide mode
@@ -63,6 +67,12 @@ augroup CursorLineOnlyInActiveWindow
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
+
+" easy wrapped line navigation with ctrl key
+vmap <C-j> gj
+vmap <C-k> gk
+nmap <C-j> gj
+nmap <C-k> gk
 
 " strip trailing whitespaces on all file
 fun! <SID>StripTrailingWhitespaces()
