@@ -36,10 +36,6 @@ set hls " highlight search
 " Remove last search highlighting, when hitting return
 nnoremap <CR> :set hlsearch!<cr>
 
-" smart case-sensitive search
-set ignorecase
-set smartcase
-
 " tab completion for files/bufferss
 set wildmode=longest,list
 set wildmenu
