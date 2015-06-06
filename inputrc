@@ -1,8 +1,9 @@
-# use Vi, not Emacs, style editing
-set editing-mode vi
-
 # show all completions as soon as I press tab, even if there's more than one
 set show-all-if-ambiguous on
+# use Vi, not Emacs, style editing
+set editing-mode vi
+# show wheter we are in insert mode or not
+set show-mode-in-prompt on
 
 # keymaps for when we're in command mode (e.g., after hitting ESC)
 set keymap vi-command
