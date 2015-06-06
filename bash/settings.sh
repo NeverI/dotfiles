@@ -35,9 +35,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 
+    complete -o default rm
     complete -A directory  mkdir rmdir
     complete -A directory  -o default cd
-    complete -o default rm
     complete -f -o default -X '*.+(zip|ZIP)'  zip
     complete -f -o default -X '!*.+(zip|ZIP)' unzip
     complete -f -o default -X '*.+(gz|GZ)'    gzip
