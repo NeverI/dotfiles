@@ -12,6 +12,7 @@
     ~/.tmux.conf: tmux.conf
     ~/.screenrc: screenrc
     ~/.config/liquidpromptrc: bash/liquidpromptrc
+    ~/bin/fasd: bash/plugins/fasd/fasd
 
 - shell:
     - git submodule update --init --recursive
