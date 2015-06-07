@@ -90,6 +90,9 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
 " strip trailing whitespaces on all file
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
