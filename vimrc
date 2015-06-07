@@ -1,7 +1,12 @@
 " i don't need vi :)
 set nocompatible
 
-" syntac highlight and auto identation
+" separate plugin definitions
+let $PLUGINFILE=expand("~/.config/dotfiles/vim/pluginrc")
+if filereadable($PLUGINFILE)
+    source $PLUGINFILE
+endif
+
 syntax on
 filetype plugin indent on
 set autoindent
