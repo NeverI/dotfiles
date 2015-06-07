@@ -72,7 +72,7 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 " colorscheme
-if $THEME
+if exists("$THEME")
     set t_Co=256
     let base16colorspace="256"
     " these variables come from the bashrc
