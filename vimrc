@@ -43,6 +43,7 @@ nnoremap <CR> :set hlsearch!<cr>
 " tab completion for files/bufferss
 set wildmode=longest,list
 set wildmenu
+set wildignore+=*/cache/*,*/tmp/*,*.so,*.swp,*.zip
 set mouse+=a " enable mouse mode (scrolling, selection, etc)
 
 " open new split panes to right and bottom, which feels more natural
