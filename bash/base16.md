@@ -14,6 +14,13 @@ There is an easy way to register all theme?
 
 My favorite themes:
 ===
+    - bright.dark
+    - codeschool.dark
     - eighties.dark
+    - harmonic16.dark
     - monokail.dark
     - pop.dark
+    - shapeshifter.dark
+    - summerfruit.dark
+    - tomorrow.dark
+    - twilight.dark
