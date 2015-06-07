@@ -72,15 +72,17 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 " colorscheme
-set t_Co=256
-let base16colorspace="256"
-" these variables come from the bashrc
-" so the terminal and vim colors binded
-execute "colorscheme ".$THEME
-execute "set background=".$BACKGROUND
-" support transparent background
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+if $THEME
+    set t_Co=256
+    let base16colorspace="256"
+    " these variables come from the bashrc
+    " so the terminal and vim colors binded
+    execute "colorscheme ".$THEME
+    execute "set background=".$BACKGROUND
+    " support transparent background
+    highlight Normal ctermbg=NONE
+    highlight nonText ctermbg=NONE
+endif
 
 " easy wrapped line navigation with ctrl key
 vmap <C-j> gj
