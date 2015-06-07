@@ -6,6 +6,7 @@ install git
 install tmux
 install vim "vim-gtk"
 install mongo "mongodb"
+install ag "silversearcher-ag"
 
 # hh is a promising bash history manager
 install_from_ppa hh "ultradvorka/ppa";
