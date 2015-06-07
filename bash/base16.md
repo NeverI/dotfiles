@@ -1,7 +1,3 @@
-How can I lunch the terminal with a specified theme?
-===
-    Add '''--window-with-profile="Base 16 Eighties Dark"''' to the terminal luncher
-
 There is an easy way to register all theme?
 ===
     '''
