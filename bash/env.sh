@@ -5,7 +5,7 @@ export GIT_EDITOR=/usr/bin/vim
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-HISTIGNORE='hh *:history*:&:[ ]*:exit'
+HISTIGNORE='hh *:history*:&:man *:[ ]*:exit'
 HISTSIZE=1000
 HISTFILESIZE=2000
 
