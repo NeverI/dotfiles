@@ -2,6 +2,11 @@
   - '~'
   - '~/.config'
 
+- shell:
+    - mkdir -p vim/undo
+    - mkdir -p vim/swap
+    - mkdir -p vim/backup
+
 - link:
     ~/.config/dotfiles: ''
     ~/.profile: profile
