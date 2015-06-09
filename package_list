@@ -3,10 +3,12 @@
 # install with apt-get
 install mc
 install git
+install xsel
 install tmux
 install vim "vim-gtk"
 install mongo "mongodb"
 install ag "silversearcher-ag"
+install urxvt "rxvt-unicode-256color"
 
 # hh is a promising bash history manager
 install_from_ppa hh "ultradvorka/ppa";

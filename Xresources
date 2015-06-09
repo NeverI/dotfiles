@@ -1,0 +1,26 @@
+URxvt.depth: 32
+URxvt.geometry: 80x30
+URxvt.background: [90]#000000
+
+URxvt.font:xft:Ubuntu Mono:pixelsize=16
+URxvt.boldfont:xft:Ubuntu Mono:pixelsize=16
+
+URxvt.scrollBar: False
+URxvt.scrollBar_right: True
+
+URxvt.scrollTtyOutput: False
+URxvt.scrollWithBuffer: True
+URxvt.scrollTtyKeypress: False
+
+URxvt.perl-ext-common: default,clipboard,font-size,url-select
+
+! enable ctrl+shift+c and ctrl+shift+v copy/pase
+URxvt.iso14755: False
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+
+! control+arrow for font size adjustment
+URxvt.keysym.C-Up: perl:font-size:increase
+URxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.keysym.C-S-Up: perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal

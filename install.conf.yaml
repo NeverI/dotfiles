@@ -6,6 +6,7 @@
     - mkdir -p vim/undo
     - mkdir -p vim/swap
     - mkdir -p vim/backup
+    - mkdir -p ~/.urxvt/ext
 
 - link:
     ~/.config/dotfiles: ''
@@ -13,12 +14,17 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.inputrc: inputrc
+    ~/.Xresources: Xresources
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.tmux.conf: tmux.conf
     ~/.screenrc: screenrc
     ~/.config/liquidpromptrc: bash/liquidpromptrc
     ~/bin/fasd: bash/plugins/fasd/fasd
+    ~/.urxvt/ext/clipboard: bash/plugins/urxvt-perls/clipboard
+    ~/.urxvt/ext/url-select: bash/plugins/urxvt-perls/url-select
+    ~/.urxvt/ext/font-size: bash/plugins/urxvt-font-size/font-size
+    ~/.urxvt/ext/keyboard-select: bash/plugins/urxvt-perls/keyboard-select
 
 - shell:
     - git submodule update --init --recursive

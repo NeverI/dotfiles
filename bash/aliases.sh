@@ -23,6 +23,9 @@ _fasd_bash_hook_cmd_complete v o
 # clear and reload the command history
 alias historyReload='history -c; history -r;'
 
+# reload the .Xresource, usefull for urxtv terminal
+alias xresourceReload='xrdb ~/.Xresources'
+
 # swearing is sweet:)
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'
