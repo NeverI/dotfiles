@@ -14,7 +14,7 @@ source ~/.config/dotfiles/bash/settings.sh
 source ~/.config/dotfiles/bash/aliases.sh
 
 # colors
-if [ "$TERM" == "xterm" ]; then
+if [ "$TERM" == "xterm" -o "$TERM" == "rxvt-unicode" ]; then
     export TERM=xterm-256color
 fi
 export BACKGROUND="dark"
