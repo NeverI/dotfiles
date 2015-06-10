@@ -27,3 +27,6 @@ fi
 
 BASE16_SHELL="$HOME/.config/dotfiles/bash/plugins/base16-shell/$THEME.$BACKGROUND.sh"
 source $BASE16_SHELL
+
+# change the background to transparent
+printf "\033]11;rgba:0b00/1c00/2c00/e5e5\033\\"
