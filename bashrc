@@ -18,7 +18,7 @@ if [ "$TERM" == "xterm" -o "$TERM" == "rxvt-unicode" ]; then
     export TERM=xterm-256color
 fi
 export BACKGROUND="dark"
-export THEME="base16-eighties"
+export THEME="base16-harmonic16"
 
 # Allow local customizations in the ~/.bashrc_local file
 if [ -f ~/.bashrc_local ]; then
