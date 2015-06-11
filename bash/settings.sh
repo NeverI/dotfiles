@@ -48,6 +48,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     source ~/.config/dotfiles/bash/plugins/ssh-completion.bash
     source ~/.config/dotfiles/bash/plugins/git-completion.bash
     source ~/.config/dotfiles/bash/plugins/tmux-completion.bash
+    source ~/.config/dotfiles/bash/plugins/tmuxp-completion.bash
 fi
 
 # use less as the default pager
