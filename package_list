@@ -17,3 +17,8 @@ install_from_ppa node "chris-lea/node.js";
 install_from_ppa doublecmd "alexx2000/doublecmd" "doublecmd-gtk";
 
 install_from_deb steam "http://media.steampowered.com/client/installer/steam.deb";
+
+install_from_npm grunt "grunt-cli"
+
+# python version of the tmuxinator
+install_from_pip tmuxp
