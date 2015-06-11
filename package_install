@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 packages="";
+packages_npm=""
 apt_cache_update_needed=false;
 
 # $1 searched command
@@ -58,6 +59,19 @@ install_from_deb() {
     dpkg -i "$file_name";
 }
 
+# $1 searched command
+# ?$2 desired package name(s) when not same as the command
+install_from_npm() {
+    if command_exists "$1" ; then
+        return;
+    fi
+
+    if [ "$2" ] ; then
+        packages_npm=" $packages_npm $2";
+    else
+        packages_npm=" $packages_npm $1";
+    fi
+}
 source "./package_list"
 
 if $apt_cache_update_needed ; then
@@ -66,4 +80,8 @@ fi
 
 if [ "$packages" ] ; then
     apt-get install $packages;
+fi
+
+if [ "$packages_npm" ] ; then
+    npm install -g $packages_npm;
 fi
