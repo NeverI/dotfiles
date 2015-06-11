@@ -2,6 +2,7 @@
 
 packages="";
 packages_npm=""
+packages_pip=""
 apt_cache_update_needed=false;
 
 # $1 searched command
@@ -72,6 +73,21 @@ install_from_npm() {
         packages_npm=" $packages_npm $1";
     fi
 }
+
+# $1 searched command
+# ?$2 desired package name(s) when not same as the command
+install_from_pip() {
+    if command_exists "$1" ; then
+        return;
+    fi
+
+    if [ "$2" ] ; then
+        packages_pip=" $packages_pip $2";
+    else
+        packages_pip=" $packages_pip $1";
+    fi
+}
+
 source "./package_list"
 
 if $apt_cache_update_needed ; then
@@ -84,4 +100,8 @@ fi
 
 if [ "$packages_npm" ] ; then
     npm install -g $packages_npm;
+fi
+
+if [ "$packages_pip" ] ; then
+    pip install $packages_pip;
 fi
