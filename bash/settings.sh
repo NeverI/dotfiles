@@ -44,6 +44,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     complete -f -o default -X '!*.+(gz|GZ)'   gunzip
     complete -f -o default -X '!*.+(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
 
+    source ~/.config/dotfiles/bash/plugins/pip-completion.bash
     source ~/.config/dotfiles/bash/plugins/ssh-completion.bash
     source ~/.config/dotfiles/bash/plugins/git-completion.bash
     source ~/.config/dotfiles/bash/plugins/tmux-completion.bash
