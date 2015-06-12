@@ -26,6 +26,9 @@ alias historyReload='history -c; history -r;'
 # reload the .Xresource, usefull for urxtv terminal
 alias xresourceReload='xrdb ~/.Xresources'
 
+# tmux pane split and window creation clear the transparency...
+alias resetbgcolor='printf "$BACKGROUND_COLOR"'
+
 # swearing is sweet:)
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'

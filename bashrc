@@ -17,8 +17,11 @@ source ~/.config/dotfiles/bash/aliases.sh
 if [ "$TERM" == "xterm" -o "$TERM" == "rxvt-unicode" ]; then
     export TERM=xterm-256color
 fi
+
 export BACKGROUND="dark"
 export THEME="base16-harmonic16"
+# change the background to transparent
+export BACKGROUND_COLOR="\033]11;rgba:0b00/1c00/2c00/e5e5\033\\"
 
 # Allow local customizations in the ~/.bashrc_local file
 if [ -f ~/.bashrc_local ]; then
@@ -28,5 +31,4 @@ fi
 BASE16_SHELL="$HOME/.config/dotfiles/bash/plugins/base16-shell/$THEME.$BACKGROUND.sh"
 source $BASE16_SHELL
 
-# change the background to transparent
-printf "\033]11;rgba:0b00/1c00/2c00/e5e5\033\\"
+printf $BACKGROUND_COLOR
