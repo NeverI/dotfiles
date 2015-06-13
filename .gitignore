@@ -1,4 +1,4 @@
 private/*
 vim/*
-!vim/pluginsrc
+!vim/pluginrc.vim
 !vim/vundle

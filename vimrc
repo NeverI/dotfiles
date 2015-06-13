@@ -2,7 +2,7 @@
 set nocompatible
 
 " separate plugin definitions
-let $PLUGINFILE=expand("~/.config/dotfiles/vim/pluginrc")
+let $PLUGINFILE=expand("~/.config/dotfiles/vim/pluginrc.vim")
 if filereadable($PLUGINFILE)
     source $PLUGINFILE
 endif
