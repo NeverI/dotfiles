@@ -1,4 +1,7 @@
+URxvt.loginShell: True
+
 URxvt.depth: 32
+URxvt.fading: 30
 URxvt.geometry: 80x30
 URxvt.background: [95]#000000
 
@@ -9,6 +12,7 @@ URxvt.scrollBar: False
 URxvt.scrollBar_right: True
 URxvt.internalBorder:
 
+URxvt.jumpScroll: True
 URxvt.scrollTtyOutput: False
 URxvt.scrollWithBuffer: True
 URxvt.scrollTtyKeypress: False
