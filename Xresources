@@ -5,8 +5,9 @@ URxvt.fading: 30
 URxvt.geometry: 80x30
 URxvt.background: [95]#000000
 
-URxvt.font:xft:Ubuntu Mono:pixelsize=16
-URxvt.boldfont:xft:Ubuntu Mono:pixelsize=16
+URxvt.font:xft:Liberation Mono:size=11
+!URxvt.font:xft:Ubuntu Mono:size=12
+!URxvt.font:xft:Droid Sans Mono:size=11
 
 URxvt.scrollBar: False
 URxvt.scrollBar_right: True
