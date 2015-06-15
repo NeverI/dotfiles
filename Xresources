@@ -22,3 +22,9 @@ URxvt.keysym.C-V: perl:clipboard:paste
 ! control+shift+arrow for font size adjustment
 URxvt.keysym.C-S-Up: perl:font-size:increase
 URxvt.keysym.C-S-Down: perl:font-size:decrease
+
+! fix control+arrow keys in vim insert abcd
+URxvt.keysym.C-Up: \033[1;5A
+URxvt.keysym.C-Down: \033[1;5B
+URxvt.keysym.C-Left: \033[1;5D
+URxvt.keysym.C-Right: \033[1;5C
