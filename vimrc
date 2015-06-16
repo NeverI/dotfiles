@@ -103,6 +103,13 @@ endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" easy tab size changer
+func TabSize(size)
+    let &tabstop=a:size
+    let &shiftwidth=a:size
+    let &softtabstop=a:size
+endfun
+
 " local customizations in ~/.vimrc_local
 let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
