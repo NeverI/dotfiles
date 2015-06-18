@@ -14,10 +14,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
-
-Plugin 'Buffet.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
 
 Plugin 'ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -40,29 +38,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " update frequently is increased so git gutter is more accurate
 set updatetime=750
 
-" PyMatcher for CtrlP
-if !has('python')
-    echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
-
-" 'a' the directory of the current file, unless it is a subdirectory of the cwd
-" 'r' the nearest ancestor of the current file that contains gi
-" 'w' start search from the cwd instead of the current file's directory
-let g:ctrlp_working_path_mode = 'arw'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-" Set delay to prevent extra search
-let g:ctrlp_lazy_update = 350
-
-" Do not clear filenames cache, to improve CtrlP startup
-" You can manualy clear it by <F5>
-let g:ctrlp_clear_cache_on_exit = 0
-
-" Set no file limit, we are building a big project
-let g:ctrlp_max_files = 0
-
 let g:ctrlsf_ackprg = 'ag'
 let g:ctrlsf_case_sensitive = 'yes'
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -75,9 +50,34 @@ inoremap <C-F>o <Esc>:CtrlSFToggle<CR>
 
 " If ag is available use it as filename list generator instead of 'find'
 if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore --hidden -g ""'
+    let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor -S -C4'
+    let g:unite_source_grep_recursive_opt = ''
 endif
+
+let g:unite_prompt='» '
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_file_rec_max_cache_files = 3000
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <C-b> :Unite -buffer-name=buffers -no-start-insert buffer<cr>
+nnoremap <C-y> :Unite -buffer-name=yank history/yank<cr>
+nnoremap <C-p> :Unite -no-split -buffer-name=files buffer file_rec/async:!<cr>
+nnoremap <C-U>u :Unite
+nnoremap <C-U>f :Unite -no-split -buffer-name=files file_rec/async:
+nnoremap <C-U>g :Unite -buffer-name=grep grep:
+nnoremap <C-U>l :Unite -buffer-name=lines line
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " Bubble single lines
 nmap <C-Up> [e
