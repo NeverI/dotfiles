@@ -62,6 +62,16 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Set no file limit, we are building a big project
 let g:ctrlp_max_files = 0
 
+let g:ctrlsf_ackprg = 'ag'
+let g:ctrlsf_case_sensitive = 'yes'
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+nmap     <C-F>f <Plug>CtrlSFPrompt
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFToggle<CR>
+vnoremap <C-F>o <Esc>:CtrlSFToggle<CR>
+inoremap <C-F>o <Esc>:CtrlSFToggle<CR>
+
 " If ag is available use it as filename list generator instead of 'find'
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
