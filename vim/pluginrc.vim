@@ -22,6 +22,7 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
 
+Plugin 'rhysd/clever-f.vim'
 Plugin 'mbbill/undotree'
 
 Plugin 'evidens/vim-twig'
