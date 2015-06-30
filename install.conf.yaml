@@ -29,4 +29,5 @@
     ~/.urxvt/ext/clipboard: bash/plugins/urxvt-perls/clipboard
     ~/.urxvt/ext/url-select: bash/plugins/urxvt-perls/url-select
     ~/.urxvt/ext/font-size: bash/plugins/urxvt-font-size/font-size
+    ~/.urxvt/ext/fullscreen: bash/plugins/urxvt-myscripts/fullscreen
     ~/.urxvt/ext/keyboard-select: bash/plugins/urxvt-perls/keyboard-select

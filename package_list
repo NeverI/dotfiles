@@ -5,6 +5,7 @@ install mc
 install git
 install xsel
 install tmux
+install wmctrl
 install vim "vim-gtk"
 install mongo "mongodb"
 install pip "python-pip"
