@@ -35,9 +35,9 @@ set ttyfast
 set showmatch " show matching braces when text indicator is over them
 
 " set tmp dirs
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup/
+set directory=~/.vim/swap/
+set undodir=~/.vim/undo/
 
 " search related things
 set incsearch " incremental search (as string is being typed)
