@@ -64,9 +64,10 @@ let g:unite_source_file_rec_max_cache_files = 3000
 "call unite#filters#sorter_default#use(['sorter_rank'])
 
 nnoremap <C-b> :Unite -buffer-name=buffers -no-start-insert buffer<cr>
-nnoremap <C-y> :Unite -buffer-name=yank history/yank<cr>
+nnoremap <C-x> :Unite -buffer-name=yank history/yank<cr>
 nnoremap <C-p> :Unite -buffer-name=files buffer file_rec/async:!<cr>
 nnoremap <C-U>u :Unite
+nnoremap <C-U>r :UniteResume<cr>
 nnoremap <C-U>f :Unite -buffer-name=files file_rec/async:
 nnoremap <C-U>g :Unite -buffer-name=grep grep:
 nnoremap <C-U>l :Unite -buffer-name=lines line
