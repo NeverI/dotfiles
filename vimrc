@@ -11,11 +11,14 @@ syntax on
 filetype plugin indent on
 set autoindent
 
-" use 4 spaces instead of tabs during formatting
+" whitespace handling
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+au FileType php setl tabstop=4 shiftwidth=4 softtabstop=4
+au FileType python setl tabstop=4 shiftwidth=4 softtabstop=4
 
 " ensure the correct linewrap
 set lbr
