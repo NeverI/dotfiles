@@ -6,6 +6,7 @@ install git
 install xsel
 install tmux
 install wmctrl
+install exuberant-ctags
 install vim "vim-gtk"
 install mongo "mongodb"
 install pip "python-pip"
