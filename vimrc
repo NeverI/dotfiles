@@ -57,8 +57,6 @@ set wildignore+=*/cache/*,*/tmp/*,*.so,*.swp,*.zip
 " enable mouse mode (scrolling, selection, etc)
 set mouse+=a
 
-" netrw open preview window in vertical split
-let g:netrw_preview=1
 
 " open new split panes to right and bottom, which feels more natural
 set splitbelow
