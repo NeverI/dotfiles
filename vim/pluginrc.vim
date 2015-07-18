@@ -24,6 +24,8 @@ Plugin 'rhysd/clever-f.vim'
 Plugin 'mbbill/undotree'
 
 Plugin 'evidens/vim-twig'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
