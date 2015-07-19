@@ -10,14 +10,14 @@ snippet thrl "Throw a simple exception"
 throw new \LogicException("${1:message}");
 endsnippet
 
-snippet cls "Class declaration template"
+snippet cls "Symfony class declaration"
 <?php
 
-namespace ${1:`!v substitute(substitute(expand("%:h"), 'v^w+/(u)', '1', ''), '/', '\', 'g')`};
+namespace `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/\w+.php$', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`;
 
-class ${2:`!v expand("%:t:r")`}
+class `!v expand("%:t:r")` ${1}
 {
-	$0
+	${0}
 }
 endsnippet
 
@@ -36,16 +36,15 @@ public function set${1}(\$${2:value})
 }
 endsnippet
 
-snippet tcs "TestCase declaration template"
+snippet tec "Symfony testCase declaration"
 <?php
+namespace `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/\w+.php$', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`;
 
-namespace ${1:`!v substitute(substitute(expand("%:h"), 'v^w+/(u)', '1', ''), '/', '\', 'g')`};
-
-use ${2:TestCase};
+use `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)(\/\w+\/\w+)\/.+', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`\Testcase;
 
 class `!v expand("%:t:r")` extends TestCase
 {
-	public \$${3:service};
+	public \$${1:service};
 
 	public function test()
 	{
@@ -54,10 +53,9 @@ class `!v expand("%:t:r")` extends TestCase
 		$0
 	}
 
-	public function create${3/.+/\u$0/}()
+	public function create${1/.+/\u$0/}()
 	{
-		`!p snip.rv = path`
-		\$this->$3 = \$this->createLogic('`!v (substitute(expand("%:h:h"), '/', '\', 'g') + '\' + substitute(expand("%:t:r"), 'Test', '', ''))`');
+		\$this->$1 = \$this->createLogic('`!v substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/\w+\/\w+.php$', '\2', ''), '\/', '\\', 'g')`\\`!v substitute(expand("%:t:r"), 'Test', '', '')`');
 		return \$this;
 	}
 }
