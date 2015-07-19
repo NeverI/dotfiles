@@ -28,6 +28,7 @@ Plugin 'evidens/vim-twig'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mtscout6/vim-cjsx'
 
 call vundle#end()
 
