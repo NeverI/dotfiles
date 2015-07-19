@@ -2,4 +2,6 @@ private/*
 vim/*
 !vim/pluginrc.vim
 !vim/vundle
+!vim/UltiSnips
+vim/UltiSnips/*_local.snippets
 Session.vim

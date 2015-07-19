@@ -1,0 +1,99 @@
+snippet thr "Throw a simple exception"
+throw new \Exception("${1:Buu}");
+endsnippet
+
+snippet thrp "Throw an exception with print_rred data"
+throw new \Exception(print_r(\$${1}, true));
+endsnippet
+
+snippet thrl "Throw a simple exception"
+throw new \LogicException("${1:message}");
+endsnippet
+
+snippet cls "Class declaration template"
+<?php
+
+namespace ${1:`!v substitute(substitute(expand("%:h"), 'v^w+/(u)', '1', ''), '/', '\', 'g')`};
+
+class ${2:`!v expand("%:t:r")`}
+{
+	$0
+}
+endsnippet
+
+snippet gm "Simple getter"
+public function get${1}()
+{
+	return \$this->${1/.+/\l$0/};
+}
+endsnippet
+
+snippet sm "Simple setter"
+public function set${1}(\$${2:value})
+{
+	\$this->${1/.+/\l$0/} = \$$2;
+	return \$this;
+}
+endsnippet
+
+snippet tcs "TestCase declaration template"
+<?php
+
+namespace ${1:`!v substitute(substitute(expand("%:h"), 'v^w+/(u)', '1', ''), '/', '\', 'g')`};
+
+use ${2:TestCase};
+
+class `!v expand("%:t:r")` extends TestCase
+{
+	public \$${3:service};
+
+	public function test()
+	{
+		parent::test();
+
+		$0
+	}
+
+	public function create${3/.+/\u$0/}()
+	{
+		`!p snip.rv = path`
+		\$this->$3 = \$this->createLogic('`!v (substitute(expand("%:h:h"), '/', '\', 'g') + '\' + substitute(expand("%:t:r"), 'Test', '', ''))`');
+		return \$this;
+	}
+}
+endsnippet
+
+snippet bef "Bdd beforEach block"
+beforeEach(function(\$test) {
+	\$test
+		->${0}
+		;
+});
+endsnippet
+
+snippet desc "Bdd describe block"
+describe("${1:message}", function(\$test) {
+	${0}
+});
+endsnippet
+
+snippet it "Bdd it block"
+it("${1:message}", function(\$test) {
+	${0}
+});
+endsnippet
+
+snippet exp "Esperence expect"
+\$test->expect(${1})->to->be(${0});
+endsnippet
+
+snippet exph "Esperence expect have"
+\$test->expect(${1})->to->have->length(${0});
+endsnippet
+
+snippet expt "Esperence expect throw"
+\$test->expect(function() use(\$test) {
+	\$test->${1};
+})->to->throw(${0});
+endsnippet
+

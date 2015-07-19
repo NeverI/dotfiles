@@ -16,6 +16,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'SirVer/ultisnips'
 
 Plugin 'ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -88,3 +89,9 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
