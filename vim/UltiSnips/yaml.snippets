@@ -1,0 +1,52 @@
+snippet sfse "Symfony service definition" m
+`!v substitute(expand("%:p"), '\v.+\/(\w+)Bundle\/.+', '\l\1', '')`.${1:}:
+	class: `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)(\/\w+\/\w+)\/.+', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`\\${2:}
+	params:
+		container: @service_container
+		$0
+endsnippet
+
+snippet wfse "Workflow service definition" m
+`!v substitute(expand("%:p"), '\v.+\/(\w+)Bundle\/.+', '\l\1', '')`.${1:}:
+	parent: workflow.service
+	class: `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)(\/\w+\/\w+)\/.+', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`\\${2:}
+	${3: params:${4:}}
+	${5: calls: [[ configure ]] }
+	$0
+endsnippet
+
+snippet wfevs "Workflow events definitin" m
+events:
+	-
+		name: ${1:}
+		method: ${2:}
+	$0
+endsnippet
+
+snippet wfev "Workflow event definitin" m
+-
+	name: ${1:}
+	method: ${2:}
+$0
+endsnippet
+
+snippet mock "Mock definition" m
+`!v substitute(expand("%:p"), '\v.+\/(\w+)Bundle\/.+', '\l\1', '')`${1:}:
+	class: `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/.+\/.+\/\w+.yml$', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`\\${2:}
+	${3:service: '`!v substitute(expand("%:p"), '\v.+\/(\w+)Bundle\/.+', '\l\1', '')`.${4:}}'
+$0
+endsnippet
+
+snippet mconf "Mock configuration" m
+configuration:
+	${1:`!v @"`}:
+		${2:method}:
+			returnValue: ${3:}
+		$0
+endsnippet
+
+snippet mre "Mock return value configuration" m
+${1:method}:
+	returnValue: ${2:}
+$0
+endsnippet
