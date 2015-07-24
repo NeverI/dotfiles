@@ -21,14 +21,35 @@ class `!v expand("%:t:r")` ${1}
 }
 endsnippet
 
-snippet gm "Simple getter"
+snippet "p(ri|ro|ub)p" "Private/protected/public property" rb
+`!p snip.rv = 'private' if match.group(1) == 'r' else ('protected' if match.group(1) == 'o' else 'public')` \$${1:};
+${0}
+endsnippet
+
+snippet "p(ri|ro|ub)m" "Private/protected/public method" rb
+`!p snip.rv = 'private' if match.group(1) == 'r' else ('protected' if match.group(1) == 'o' else 'public')` function ${1:method}(${2:})
+{
+	${0}
+}
+endsnippet
+
+snippet "cp(ri|ro|ub)m" "Private/protected/public chained method" rb
+`!p snip.rv = 'private' if match.group(1) == 'r' else ('protected' if match.group(1) == 'o' else 'public')` function ${1:method}(${2:})
+{
+	${0}
+
+	return \$this;
+}
+endsnippet
+
+snippet gm "Simple getter" b
 public function get${1}()
 {
 	return \$this->${1/.+/\l$0/};
 }
 endsnippet
 
-snippet sm "Simple setter"
+snippet sm "Simple setter" b
 public function set${1}(\$${2:value})
 {
 	\$this->${1/.+/\l$0/} = \$$2;
@@ -40,15 +61,15 @@ snippet tec "Symfony testCase declaration"
 <?php
 namespace `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/\w+.php$', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`;
 
-use `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)(\/\w+\/\w+)\/.+', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`\Testcase;
+use `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)(\/\w+\/\w+)\/.+', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`\TestCase;
 
 class `!v expand("%:t:r")` extends TestCase
 {
 	public \$${1:service};
 
-	public function test()
+	public function tests()
 	{
-		parent::test();
+		parent::tests();
 
 		$0
 	}
@@ -70,28 +91,88 @@ beforeEach(function(\$test) {
 endsnippet
 
 snippet desc "Bdd describe block"
-describe("${1:message}", function(\$test) {
+describe('${1:message}', function(\$test) {
 	${0}
 });
 endsnippet
 
 snippet it "Bdd it block"
-it("${1:message}", function(\$test) {
+it('${1:message}', function(\$test) {
 	${0}
 });
 endsnippet
 
-snippet exp "Esperence expect"
-\$test->expect(${1})->to->be(${0});
+snippet exp "Esperence expect to be" m
+\$test->expect(\$${1})->to->be(${2});
+${0}
 endsnippet
 
-snippet exph "Esperence expect have"
-\$test->expect(${1})->to->have->length(${0});
+snippet expe "Esperence expect to eql" m
+\$test->expect(\$${1})->to->eql(${2});
+${0}
 endsnippet
 
-snippet expt "Esperence expect throw"
+snippet expl "Esperence expect have length" m
+\$test->expect(\$${1})->to->have->length(${2});
+${0}
+endsnippet
+
+snippet expi "Esperence expect instanceof" m
+\$test->expect(\$${1})->to->be->a(${2});
+${0}
+endsnippet
+
+snippet expt "Esperence expect throw" m
 \$test->expect(function() use(\$test) {
 	\$test->${1};
-})->to->throw(${0});
+})->to->throw(${2});
+${0}
 endsnippet
 
+snippet mocka "addMock call" m
+->addMock('${1:}.yml')
+${0}
+endsnippet
+
+snippet mockr "configureMock with returnValue" m
+->configureMock('${1:}/${2:}/returnValue', ${3:})
+${0}
+endsnippet
+
+snippet mockrw "configureMock with returnWhenCalledWith" m
+->configureMock('${1:}/${2:}/returnWhenCalledWith', array(
+	array(
+		args => array(${3:}),
+		returnValue => ${4:}
+	),
+	${5:}
+))
+${0}
+endsnippet
+
+snippet mockrc "configureMock with returnCallback" m
+->configureMock('${1:}/${2:}/returnCallback', function(${3:arguments}) use(\$test) {
+	${4:}
+})
+${0}
+endsnippet
+
+snippet mockrcn "configureMock with returnCallbackName" m
+->configureMock('${1:}/${2:}/returnCallbackName', '${3:method}')
+${0}
+endsnippet
+
+snippet mockct "configureMock with callTime" m
+->configureMock('${1:}/${2:}/callTime', ${3:})
+${0}
+endsnippet
+
+snippet mockcw "configureMock with calledWith" m
+->configureMock('${1:}/${2:}/calledWith', array(${3:}))
+${0}
+endsnippet
+
+snippet mockt "configureMock with throwException" m
+->configureMock('${1:}/${2:}/throwException', ${3:})
+${0}
+endsnippet
