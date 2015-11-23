@@ -90,6 +90,9 @@ function! s:unite_settings()
     imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
+" Clever-f
+let g:clever_f_across_no_line=1
+
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
