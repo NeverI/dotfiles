@@ -21,9 +21,11 @@ Plugin 'SirVer/ultisnips'
 Plugin 'ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
 
+Plugin 'scrooloose/syntastic'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'mbbill/undotree'
 
+Plugin 'gkz/vim-ls'
 Plugin 'evidens/vim-twig'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -34,8 +36,12 @@ call vundle#end()
 
 " always show the statusbar
 set laststatus=2
-" add fugitive to statusline
-set statusline=%<%f\ %{fugitive#head()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" add syntastic and fugitive to statusline
+set statusline=%<%f\ %#warningmsg#%{SyntasticStatuslineFlag()}%*\ %{fugitive#head()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
 " autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
