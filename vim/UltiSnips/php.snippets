@@ -22,8 +22,7 @@ class `!v expand("%:t:r")` ${1}
 endsnippet
 
 snippet "p(ri|ro|ub)p" "Private/protected/public property" rb
-`!p snip.rv = 'private' if match.group(1) == 'r' else ('protected' if match.group(1) == 'o' else 'public')` \$${1:};
-${0}
+`!p snip.rv = 'private' if match.group(1) == 'r' else ('protected' if match.group(1) == 'o' else 'public')` \$${1:};${0}
 endsnippet
 
 snippet "p(ri|ro|ub)m" "Private/protected/public method" rb
@@ -85,7 +84,7 @@ endsnippet
 snippet bef "Bdd beforEach block"
 beforeEach(function(\$test) {
 	\$test
-		->${0}
+		${0}
 		;
 });
 endsnippet
@@ -103,76 +102,67 @@ it('${1:message}', function(\$test) {
 endsnippet
 
 snippet exp "Esperence expect to be" m
-\$test->expect(\$${1})->to->be(${2});
-${0}
+\$test->expect(\$${1})->to->be(${2});${0}
 endsnippet
 
-snippet expe "Esperence expect to eql" m
-\$test->expect(\$${1})->to->eql(${2});
-${0}
+snippet expEq "Esperence expect to eql" m
+\$test->expect(\$${1})->to->eql(${2});${0}
 endsnippet
 
-snippet expl "Esperence expect have length" m
-\$test->expect(\$${1})->to->have->length(${2});
-${0}
+snippet expLen "Esperence expect have length" m
+\$test->expect(\$${1})->to->have->length(${2});${0}
 endsnippet
 
-snippet expi "Esperence expect instanceof" m
-\$test->expect(\$${1})->to->be->a(${2});
-${0}
+snippet expIns "Esperence expect instanceof" m
+\$test->expect(\$${1})->to->be->a(${2});${0}
 endsnippet
 
-snippet expt "Esperence expect throw" m
+snippet expThr "Esperence expect throw" m
 \$test->expect(function() use(\$test) {
 	\$test->${1};
-})->to->throw(${2});
-${0}
+})->to->throw(${2});${0}
 endsnippet
 
-snippet mocka "addMock call" m
-->addMock('${1:}.yml')
-${0}
+snippet getMo "getMock call"
+\$test->mockBuilder->get('${1:}')${0}
 endsnippet
 
-snippet mockr "configureMock with returnValue" m
-->configureMock('${1:}/${2:}/returnValue', ${3:})
-${0}
+snippet addMo "addMock call" m
+->addMock('${1:}.yml')${0}
 endsnippet
 
-snippet mockrw "configureMock with returnWhenCalledWith" m
+snippet confRe "configureMock with returnValue" m
+->configureMock('${1:}/${2:}/returnValue', ${3:})${0}
+endsnippet
+
+snippet confReWh "configureMock with returnWhenCalledWith" m
 ->configureMock('${1:}/${2:}/returnWhenCalledWith', array(
 	array(
-		args => array(${3:}),
-		returnValue => ${4:}
+		'args' => array(${3:}),
+		'returnValue' => ${4:}
 	),
 	${5:}
-))
-${0}
+))${0}
 endsnippet
 
-snippet mockrc "configureMock with returnCallback" m
+snippet confReCa "configureMock with returnCallback" m
 ->configureMock('${1:}/${2:}/returnCallback', function(${3:arguments}) use(\$test) {
 	${4:}
-})
-${0}
+})${0}
 endsnippet
 
-snippet mockrcn "configureMock with returnCallbackName" m
-->configureMock('${1:}/${2:}/returnCallbackName', '${3:method}')
-${0}
+snippet confReCaNa "configureMock with returnCallbackName" m
+->configureMock('${1:}/${2:}/returnCallbackName', '${3:method}')${0}
 endsnippet
 
-snippet mockct "configureMock with callTime" m
-->configureMock('${1:}/${2:}/callTime', ${3:})
-${0}
+snippet confCaTi "configureMock with callTime" m
+->configureMock('${1:}/${2:}/callTime', ${3:})${0}
 endsnippet
 
-snippet mockcw "configureMock with calledWith" m
-->configureMock('${1:}/${2:}/calledWith', array(${3:}))
-${0}
+snippet confCaWi "configureMock with calledWith" m
+->configureMock('${1:}/${2:}/calledWith', array(${3:}))${0}
 endsnippet
 
-snippet mockt "configureMock with throwException" m
-->configureMock('${1:}/${2:}/throwException', ${3:})
-${0}
+snippet confThr "configureMock with throwException" m
+->configureMock('${1:}/${2:}/throwException', ${3:})${0}
 endsnippet
