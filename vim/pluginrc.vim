@@ -20,7 +20,7 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'kana/vim-fakeclip'
 
-Plugin 'ctrlsf.vim'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'scrooloose/syntastic'
