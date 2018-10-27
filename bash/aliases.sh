@@ -34,3 +34,7 @@ alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'
 
 alias bdd='haxelib run bdd'
+
+# clipboard
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"

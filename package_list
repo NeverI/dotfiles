@@ -3,8 +3,9 @@
 # install with apt-get
 install mc
 install git
-install xsel
 install tmux
+install xsel
+install xclip
 install wmctrl
 install exuberant-ctags
 install vim "vim-gtk"

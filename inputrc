@@ -1,6 +1,14 @@
 # remap capslock to ctrl
 XKBOPTIONS="ctrl:nocaps"
 
+# pgup and pgdown key
+"\e[5~": forward-word
+"\e[6~": backward-word
+
+# home and and key
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+
 # show all completions as soon as I press tab, even if there's more than one
 set show-all-if-ambiguous on
 set colored-stats on

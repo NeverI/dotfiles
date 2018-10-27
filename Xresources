@@ -37,3 +37,7 @@ URxvt.keysym.C-Right: \033[1;5C
 
 ! fullscreen toggle
 URxvt.keysym.F11: perl:fullscreen:toggle
+
+! home and end keys
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
