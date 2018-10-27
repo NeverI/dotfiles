@@ -15,11 +15,9 @@ install urxvt "rxvt-unicode"
 install ag "silversearcher-ag"
 
 # hh is a promising bash history manager
-install_from_ppa hh "ultradvorka/ppa";
-install_from_ppa node "chris-lea/node.js";
-install_from_ppa doublecmd "alexx2000/doublecmd" "doublecmd-gtk";
-
-install_from_deb steam "http://media.steampowered.com/client/installer/steam.deb";
+install_from_ppa hh "ultradvorka/ppa"
+install_from_ppa numix-gtk-theme "numix/ppa"
+install_from_ppa doublecmd-gtk "alexx2000/doublecmd"
 
 install_from_npm grunt "grunt-cli"
 
