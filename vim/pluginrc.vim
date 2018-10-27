@@ -17,6 +17,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'SirVer/ultisnips'
+"Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'kana/vim-fakeclip'
 
 Plugin 'ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -105,3 +107,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-s-tab>"
+
+" Gutentags
+"let g:gutentags_cache_dir=expand('~/.ctags/')
+"let g:gutentags_exclude=[ '*/vendor/*', '*/cache/*', '*/node_modules/*' ]
+
+" FakeClip
+let g:fakeclip_terminal_multiplexer_type="tmux"
+let g:fakeclip_provide_clipboard_key_mappings=0
