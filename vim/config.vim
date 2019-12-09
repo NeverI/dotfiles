@@ -70,19 +70,6 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" colorscheme
-if exists("$THEME")
-    set t_Co=256
-    let base16colorspace="256"
-    " these variables come from the bashrc
-    " so the terminal and vim colors binded
-    execute "colorscheme ".$THEME
-    execute "set background=".$BACKGROUND
-    " support transparent background
-    highlight Normal ctermbg=NONE
-    highlight nonText ctermbg=NONE
-endif
-
 " easy wrapped line navigation with ctrl key
 vmap <C-j> gj
 vmap <C-k> gk
@@ -91,6 +78,17 @@ nmap <C-k> gk
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " strip trailing whitespaces on all file
 fun! <SID>StripTrailingWhitespaces()

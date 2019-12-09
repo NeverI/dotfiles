@@ -5,4 +5,6 @@ vim/*
 !vim/vundle
 !vim/UltiSnips
 vim/UltiSnips/*_local.snippets
+nvim/dein
+nvim/.netrwhist
 Session.vim

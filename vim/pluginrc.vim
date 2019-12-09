@@ -33,6 +33,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mtscout6/vim-cjsx'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Quramy/tsuquyomi'
 
 call vundle#end()
 
@@ -115,3 +117,16 @@ let g:UltiSnipsListSnippets="<c-s-tab>"
 " FakeClip
 let g:fakeclip_terminal_multiplexer_type="tmux"
 let g:fakeclip_provide_clipboard_key_mappings=0
+
+" colorscheme
+if exists("$THEME")
+    set t_Co=256
+    let base16colorspace="256"
+    " these variables come from the bashrc
+    " so the terminal and vim colors binded
+    execute "colorscheme ".$THEME
+    execute "set background=".$BACKGROUND
+    " support transparent background
+    highlight Normal ctermbg=NONE
+    highlight nonText ctermbg=NONE
+endif

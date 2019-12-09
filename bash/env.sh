@@ -1,5 +1,5 @@
-export EDITOR=/usr/bin/vim
-export GIT_EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
+export GIT_EDITOR=/usr/bin/nvim
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
