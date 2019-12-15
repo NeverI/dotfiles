@@ -12,7 +12,7 @@ au FileType php setl tabstop=4 shiftwidth=4 softtabstop=4
 au FileType python setl tabstop=4 shiftwidth=4 softtabstop=4
 
 " ensure the correct linewrap
-set lbr
+set linebreak
 set wrap
 set nolist
 
@@ -37,7 +37,7 @@ set backupcopy=yes
 
 " search related things
 set incsearch " incremental search (as string is being typed)
-set hls " highlight search
+set hlsearch " highlight search
 " Remove last search highlighting, when hitting return
 nnoremap <CR> :set hlsearch!<cr>
 
@@ -56,8 +56,8 @@ set splitright
 
 " use relative numbering in normal mode
 " and absolute numbering in insert mode
-set nu " number lines
-set rnu " relative line numbering
+set number " number lines
+set relativenumber " relative line numbering
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
