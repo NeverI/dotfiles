@@ -33,6 +33,13 @@ source $BASE16_SHELL
 
 printf $BACKGROUND_COLOR
 
+function findInWorkbench() {
+  esc=$(printf '\033');
+  day=${2:-*};
+  [[ $day = "today" ]] && day=`date +%Y-%m-%d`;
+  fgrep -i $1 ~/.mysql/workbench/sql_history/$day | sed "s/\(.\+\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\)\)\?.\+timestamp='\([0-9:~\.]\+\)'>\(.\+\)<\/ENTRY>/${esc}[0;35m\2 \3${esc}[0m \4/" | sed "s/&#x0A;/ /g;s/&apos;/'/g;s/&lt;/</g;s/&gt;/>/g;s/\s\s\+/ /g";
+}
+
 function manSymfony() {
   env=${1:-dev}
   commandName=`app/console --env=$env | fzf --preview 'script -efq -c "app/console --env='$env' --help \`echo {} | sed \"s/^ \+\([^ ]\+\) .\+$/\1/\"\`"' | sed 's/^ \+\([^ ]\+\) .\+$/\1/'`
