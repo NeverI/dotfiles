@@ -76,6 +76,40 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
+onoremap ni' :<c-u>normal! f'vi'<cr>
+onoremap Ni' :<c-u>normal! F'vi'<cr>
+onoremap ni" :<c-u>normal! f"vi"<cr>
+onoremap Ni" :<c-u>normal! F"vi"<cr>
+onoremap ni( :<c-u>normal! f(vi)<cr>
+onoremap Ni( :<c-u>normal! F(vi)<cr>
+onoremap ni) :<c-u>normal! f)vi)<cr>
+onoremap Ni) :<c-u>normal! F)vi)<cr>
+onoremap ni{ :<c-u>normal! f{vi}<cr>
+onoremap Ni{ :<c-u>normal! F{vi}<cr>
+onoremap ni} :<c-u>normal! f}vi}<cr>
+onoremap Ni} :<c-u>normal! F}vi}<cr>
+onoremap ni[ :<c-u>normal! f[vi]<cr>
+onoremap Ni[ :<c-u>normal! F[vi]<cr>
+onoremap ni] :<c-u>normal! f]vi]<cr>
+onoremap Ni] :<c-u>normal! F]vi]<cr>
+
+onoremap na' :<c-u>normal! f'va'<cr>
+onoremap Na' :<c-u>normal! F'va'<cr>
+onoremap na" :<c-u>normal! f"va"<cr>
+onoremap Na" :<c-u>normal! F"va"<cr>
+onoremap na( :<c-u>normal! f(va)<cr>
+onoremap Na( :<c-u>normal! F(va)<cr>
+onoremap na) :<c-u>normal! f)va)<cr>
+onoremap Na) :<c-u>normal! F)va)<cr>
+onoremap na{ :<c-u>normal! f{va}<cr>
+onoremap Na{ :<c-u>normal! F{va}<cr>
+onoremap na} :<c-u>normal! f}va}<cr>
+onoremap Na} :<c-u>normal! F}va}<cr>
+onoremap na[ :<c-u>normal! f[va]<cr>
+onoremap Na[ :<c-u>normal! F[va]<cr>
+onoremap na] :<c-u>normal! f]va]<cr>
+onoremap Na] :<c-u>normal! F]va]<cr>
+
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 " Search for selected text, forwards or backwards.
