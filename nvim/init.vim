@@ -21,7 +21,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('ncm2/ncm2-tern', {'build': 'npm install'})
   call dein#add('ncm2/ncm2-cssomni')
   call dein#add('ncm2/ncm2-html-subscope')
-  call dein#add('ncm2/ncm2-ultisnips')
 
 	call dein#add('vim-airline/vim-airline')
   "call dein#add('chriskempson/base16-vim')
@@ -31,7 +30,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('tpope/vim-obsession')
   call dein#add('tpope/vim-eunuch')
-  call dein#add('SirVer/ultisnips')
   call dein#add('dyng/ctrlsf.vim')
 	call dein#add('mhinz/vim-signify')
 	call dein#add('tpope/vim-fugitive')
@@ -64,17 +62,6 @@ set shortmess+=c
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
-
-let g:UltiSnipsSnippetsDir = "~/.config/vim/UltiSnips"
-
-" c-j c-k for moving in snippet
-" let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltiSnipsRemoveSelectModeMappings = 0
-
-" Press enter key to trigger snippet expansion
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 " autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
