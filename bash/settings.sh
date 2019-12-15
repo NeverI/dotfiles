@@ -51,6 +51,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     source ~/.config/dotfiles/bash/plugins/tmuxp-completion.bash
 fi
 
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+  _fzf_setup_completion path coffee node
+fi
+
 # use less as the default pager
 export PAGER=less
 # colorized man page

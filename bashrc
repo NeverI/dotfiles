@@ -32,3 +32,14 @@ BASE16_SHELL="$HOME/.config/dotfiles/bash/plugins/base16-shell/$THEME.$BACKGROUN
 source $BASE16_SHELL
 
 printf $BACKGROUND_COLOR
+
+function manSymfony() {
+  env=${1:-dev}
+  commandName=`app/console --env=$env | fzf --preview 'script -efq -c "app/console --env='$env' --help \`echo {} | sed \"s/^ \+\([^ ]\+\) .\+$/\1/\"\`"' | sed 's/^ \+\([^ ]\+\) .\+$/\1/'`
+  echo -n "app/console $commandName --env=$env " | xclip -sel clip
+  app/console --env="$env" "$commandName" --help
+}
+
+function runSymfony() {
+  app/console "$@" `app/console | fzf | sed 's/^ \+\([^ ]\+\) .\+$/\1/'`
+}
