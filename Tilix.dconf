@@ -1,0 +1,70 @@
+[profiles/d5978a4c-1df3-49e1-8a87-3956bf0bf26f]
+foreground-color='#839496'
+visible-name='Test'
+palette=['#073642', '#DC322F', '#859900', '#B58900', '#268BD2', '#D33682', '#2AA198', '#EEE8D5', '#002B36', '#CB4B16', '#586E75', '#657B83', '#839496', '#6C71C4', '#93A1A1', '#FDF6E3']
+badge-color-set=false
+cursor-colors-set=false
+highlight-colors-set=false
+use-theme-colors=true
+bold-color-set=false
+terminal-title='${id}: ${title}${process}'
+background-color='#002B36'
+background-transparency-percent=4
+
+[profiles]
+list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', 'd5978a4c-1df3-49e1-8a87-3956bf0bf26f']
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+foreground-color='#829395'
+visible-name='Default'
+palette=['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#545652', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']
+badge-color-set=false
+show-scrollbar=true
+scroll-on-output=true
+cursor-colors-set=false
+highlight-colors-set=false
+use-system-font=false
+bold-color-set=false
+font='Monospace 10'
+use-theme-colors=true
+notify-silence-enabled=false
+scrollback-unlimited=false
+terminal-title='${id} - ${title}'
+notify-silence-threshold=60
+scroll-on-keystroke=true
+background-color='#002A35'
+background-transparency-percent=11
+dim-transparency-percent=1
+
+[/]
+prompt-on-close=false
+quake-specific-monitor=0
+accelerators-enabled=true
+recent-session-files=[]
+terminal-title-style='small'
+window-state=132
+theme-variant='dark'
+session-name='Default'
+use-tabs=true
+new-instance-mode='new-session'
+app-title='${activeTerminalTitle}'
+prompt-on-delete-profile=true
+window-save-state=true
+control-click-titlebar=true
+terminal-title-show-when-single=false
+window-style='normal'
+
+[keybindings]
+win-switch-to-next-session='<Primary><Alt>l'
+session-add-auto='<Shift><Alt>a'
+session-synchronize-input='<Alt>i'
+session-switch-to-terminal-down='<Alt>j'
+win-switch-to-previous-session='<Primary><Alt>h'
+session-add-right='<Alt>v'
+session-add-down='<Alt>s'
+app-new-session='<Alt>t'
+session-switch-to-terminal-right='<Alt>l'
+session-switch-to-terminal-up='<Alt>k'
+terminal-close='<Alt>q'
+terminal-sync-input-override='<Primary><Shift>p'
+session-switch-to-terminal-left='<Alt>h'
