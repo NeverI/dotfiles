@@ -11,7 +11,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/defx.nvim')
 
-  "call dein#add('Shougo/deoplete.nvim')
+  call dein#add('phpactor/phpactor')
   call dein#add('roxma/nvim-yarp')
   call dein#add('ncm2/ncm2')
   call dein#add('ncm2/ncm2-bufword')
@@ -42,9 +42,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('kchmck/vim-coffee-script')
   call dein#add('HerringtonDarkholme/yats.vim')
 	call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
-  call dein#add('phpactor/phpactor')
-  "call dein#add('kristijanhusak/deoplete-phpactor')
-	"call dein#add('shawncplus/phpcomplete.vim')
 
   call dein#end()
   call dein#save_state()
@@ -53,9 +50,8 @@ endif
 filetype plugin indent on
 syntax enable
 
-"let g:deoplete#enable_at_startup = 1
-"call deoplete#custom#option('max_list', 20)
 autocmd BufEnter * call ncm2#enable_for_buffer()
+
 set completeopt=noinsert,menuone,noselect
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
