@@ -138,7 +138,8 @@ let g:nvim_typescript#default_mappings=1
 " }}}
 " PhpActor {{{
 let g:phpactorPhpBin = "/usr/bin/php7.1"
-autocmd FileType php nmap <C-]> :call phpactor#GotoDefinition()<CR>
+
+ autocmd FileType php nnoremap <buffer> <C-]> :call phpactor#GotoDefinition()<CR>
 " }}}
 " defx {{{
 autocmd FileType defx call s:defx_my_settings()
