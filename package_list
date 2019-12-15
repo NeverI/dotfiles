@@ -9,10 +9,12 @@ install xclip
 install wmctrl
 install exuberant-ctags
 install tilix
+install nvim "neovim"
 install mongo "mongodb"
 install pip "python-pip"
 install urxvt "rxvt-unicode"
 install ag "silversearcher-ag"
+install rg "ripgrep"
 
 # hh is a promising bash history manager
 install_from_ppa hh "ultradvorka/ppa"
