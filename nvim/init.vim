@@ -1,7 +1,9 @@
-vnoremap <LeftRelease> "*ygv
+" vim: foldmethod=marker
 
+source ~/.vim/config.vim
+
+" plugins {{{
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-
 if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
 
@@ -22,8 +24,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('ncm2/ncm2-cssomni')
   call dein#add('ncm2/ncm2-html-subscope')
 
-	call dein#add('vim-airline/vim-airline')
-  "call dein#add('chriskempson/base16-vim')
+  call dein#add('vim-airline/vim-airline')
   call dein#add('joshdick/onedark.vim')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
@@ -31,9 +32,9 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-obsession')
   call dein#add('tpope/vim-eunuch')
   call dein#add('dyng/ctrlsf.vim')
-	call dein#add('mhinz/vim-signify')
-	call dein#add('tpope/vim-fugitive')
-	call dein#add('junegunn/gv.vim')
+  call dein#add('mhinz/vim-signify')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('junegunn/gv.vim')
 
   call dein#add('w0rp/ale')
   call dein#add('gkz/vim-ls')
@@ -41,15 +42,16 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('pangloss/vim-javascript')
   call dein#add('kchmck/vim-coffee-script')
   call dein#add('HerringtonDarkholme/yats.vim')
-	call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
 
   call dein#end()
   call dein#save_state()
 endif
 
+syntax on
 filetype plugin indent on
-syntax enable
-
+" }}}
+" ncm2 {{{
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
 set completeopt=noinsert,menuone,noselect
@@ -60,13 +62,10 @@ set shortmess+=c
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
+" }}}
+" git plugins {{{
 " autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
-
-" close and jump to the next or prev file on the log view
-nnoremap zw zckzo
-nnoremap zs zcjzo
 
 autocmd FileType GV call s:GV_settings()
 function! s:GV_settings() abort
@@ -74,8 +73,8 @@ function! s:GV_settings() abort
   nmap sj jo<c-w>lzR<c-w>h
   nmap sk ko<c-w>lzR<c-w>h
 endfunction
-
-" Define mappings
+" }}}
+" denite {{{
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
@@ -120,9 +119,8 @@ nnoremap <C-p>r :Denite -resume -buffer-name=files<cr>
 nnoremap <C-p>l :Denite -buffer-name=lines line<cr>
 nnoremap <C-p>g :Denite -buffer-name=grep grep
 nnoremap <C-p>m :Denite file_mru<cr>
-
-let g:nvim_typescript#default_mappings=1
-
+" }}}
+" CtrlSF {{{
 let g:ctrlsf_ackprg = 'rg'
 let g:ctrlsf_case_sensitive = 'yes'
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -132,23 +130,17 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFToggle<CR>
 vnoremap <C-F>o <Esc>:CtrlSFToggle<CR>
 inoremap <C-F>o <Esc>:CtrlSFToggle<CR>
+" }}}
+" typescript {{{
 
-source ~/.vim/config.vim
-source ~/.nvim_local.vim
+let g:nvim_typescript#default_mappings=1
 
-colorscheme onedark
-let g:airline_theme='onedark'
-
-hi! Normal ctermbg=NONE guibg=NONE
-hi! LineNr ctermfg=darkgrey
-
-" leave the terminal insert mode
-:tnoremap <Esc> <C-\><C-n>
-
+" }}}
+" PhpActor {{{
 let g:phpactorPhpBin = "/usr/bin/php7.1"
 autocmd FileType php nmap <C-]> :call phpactor#GotoDefinition()<CR>
-
-
+" }}}
+" defx {{{
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
@@ -212,3 +204,26 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
   \ defx#do_action('change_vim_cwd')
 endfunction
+" }}}
+" keymappings {{{
+
+" close and jump to the next or prev file on the log view
+nnoremap zw zckzo
+nnoremap zs zcjzo
+" leave the terminal insert mode
+:tnoremap <Esc> <C-\><C-n>
+" yank the selected text via mouse
+vnoremap <LeftRelease> "*ygv
+" }}}
+" misc {{{
+let $LOCALFILE=expand("~/.nvim_local.vim")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
+
+colorscheme onedark
+let g:airline_theme='onedark'
+
+hi! Normal ctermbg=NONE guibg=NONE
+hi! LineNr ctermfg=darkgrey
+" }}}
