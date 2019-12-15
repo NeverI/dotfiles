@@ -1,6 +1,10 @@
 # Enabble grunt.js autocompletion
 eval "$(grunt --completion=bash)"
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && source ~/.config/dotfiles/bash/plugins/liquidprompt/liquidprompt
 

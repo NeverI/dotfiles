@@ -8,7 +8,7 @@ install xsel
 install xclip
 install wmctrl
 install exuberant-ctags
-install vim "vim-gtk"
+install tilix
 install mongo "mongodb"
 install pip "python-pip"
 install urxvt "rxvt-unicode"
