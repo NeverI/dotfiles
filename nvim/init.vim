@@ -60,8 +60,9 @@ set completeopt=noinsert,menuone,noselect
 " found' messages
 set shortmess+=c
 
+" Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
