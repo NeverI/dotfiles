@@ -33,6 +33,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('dyng/ctrlsf.vim')
 	call dein#add('mhinz/vim-signify')
 	call dein#add('tpope/vim-fugitive')
+	call dein#add('junegunn/gv.vim')
 
   call dein#add('w0rp/ale')
   call dein#add('gkz/vim-ls')
@@ -66,6 +67,17 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" close and jump to the next or prev file on the log view
+nnoremap zw zckzo
+nnoremap zs zcjzo
+
+autocmd FileType GV call s:GV_settings()
+function! s:GV_settings() abort
+  " next / prev commit and open all the fold
+  nmap sj jo<c-w>lzR<c-w>h
+  nmap sk ko<c-w>lzR<c-w>h
+endfunction
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
