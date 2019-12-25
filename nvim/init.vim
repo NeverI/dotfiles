@@ -139,7 +139,18 @@ let g:nvim_typescript#default_mappings=1
 " PhpActor {{{
 let g:phpactorPhpBin = "/usr/bin/php7.1"
 
- autocmd FileType php nnoremap <buffer> <C-]> :call phpactor#GotoDefinition()<CR>
+autocmd FileType php nnoremap <buffer> <C-]> :call phpactor#GotoDefinition()<CR>
+autocmd FileType php inoremap <buffer> <C-i> <ESC>:call <SID>phpactorImportClass()<CR>a
+autocmd FileType php nnoremap <buffer> <C-i> :call <SID>phpactorImportClass()<CR>
+function! s:phpactorImportClass()
+  let isClass = expand('<cword>') is 'class'
+  if !isClass
+    call phpactor#ImportClass()
+    return
+  endif
+
+  execute "normal! 2F:h:call\<space>phpactor#ImportClass()\<cr>/class/e\<cr>"
+endfunction
 " }}}
 " defx {{{
 autocmd FileType defx call s:defx_my_settings()
