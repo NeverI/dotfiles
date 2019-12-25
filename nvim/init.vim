@@ -26,6 +26,7 @@ if dein#load_state('~/.config/nvim/dein')
 
   call dein#add('vim-airline/vim-airline')
   call dein#add('joshdick/onedark.vim')
+  call dein#add('morhetz/gruvbox')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-unimpaired')
@@ -233,9 +234,12 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
-colorscheme onedark
-let g:airline_theme='onedark'
+if (has("termguicolors"))
+ set termguicolors
+endif
 
+colorscheme gruvbox
+let g:gruvbox_contract_dark='hard'
+let g:airline_theme='gruvbox'
 hi! Normal ctermbg=NONE guibg=NONE
-hi! LineNr ctermfg=darkgrey
 " }}}
