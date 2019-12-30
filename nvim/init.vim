@@ -81,6 +81,8 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
   nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
   nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> y denite#do_map('do_action', 'yank')
+  nnoremap <silent><buffer><expr> a denite#do_map('choose_action')
   nnoremap <silent><buffer><expr> q denite#do_map('quit')
   nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
@@ -88,6 +90,7 @@ endfunction
 
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
+  call ncm2#disable_for_buffer()
   imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
 endfunction
 
@@ -112,14 +115,14 @@ call denite#custom#option('_', 'highlight_matched_range', 'None')
 call denite#custom#option('_', 'highlight_matched_char', 'Statement')
 call denite#custom#option('_', 'statusline', v:false)
 
-nnoremap <C-p> :Denite -buffer-name=files file/rec<cr>
-nnoremap <C-p>p :Denite -buffer-name=files file/rec:
-nnoremap <C-p>c :DeniteCursorWord -buffer-name=files file/rec<cr>
+nnoremap <C-p> :Denite -start-filter -buffer-name=files file/rec<cr>
+nnoremap <C-p>p :Denite -start-filter -buffer-name=files file/rec:
+nnoremap <C-p>w :DeniteCursorWord -buffer-name=files file/rec<cr>
 nnoremap <C-b> :Denite -buffer-name=buffers buffer<cr>
 nnoremap <C-p>r :Denite -resume -buffer-name=files<cr>
 nnoremap <C-p>l :Denite -buffer-name=lines line<cr>
 nnoremap <C-p>g :Denite -buffer-name=grep grep
-nnoremap <C-p>m :Denite file_mru<cr>
+nnoremap <C-p>m :Denite --start-filter file_mru<cr>
 " }}}
 " CtrlSF {{{
 let g:ctrlsf_ackprg = 'rg'
