@@ -24,9 +24,11 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('ncm2/ncm2-cssomni')
   call dein#add('ncm2/ncm2-html-subscope')
 
-  call dein#add('vim-airline/vim-airline')
   call dein#add('joshdick/onedark.vim')
   call dein#add('morhetz/gruvbox')
+  call dein#add('camgunz/amber')
+
+  call dein#add('vim-airline/vim-airline')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-unimpaired')
@@ -241,8 +243,8 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-colorscheme gruvbox
 let g:gruvbox_contract_dark='hard'
 let g:airline_theme='gruvbox'
+colorscheme gruvbox
 hi! Normal ctermbg=NONE guibg=NONE
 " }}}
