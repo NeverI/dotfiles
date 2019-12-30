@@ -46,6 +46,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('kchmck/vim-coffee-script')
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+  call dein#add('NeverI/symfony.nvim')
 
   call dein#end()
   call dein#save_state()
@@ -145,9 +146,10 @@ let g:nvim_typescript#default_mappings=1
 " PhpActor {{{
 let g:phpactorPhpBin = "/usr/bin/php7.1"
 
-autocmd FileType php nnoremap <buffer> <C-]> :call phpactor#GotoDefinition()<CR>
-autocmd FileType php inoremap <buffer> <C-i> <ESC>:call <SID>phpactorImportClass()<CR>a
-autocmd FileType php nnoremap <buffer> <C-i> :call <SID>phpactorImportClass()<CR>
+autocmd FileType php inoremap <silent> <buffer>
+  \ <C-u> <ESC>:call <SID>phpactorImportClass()<CR>a
+autocmd FileType php nnoremap <silent> <buffer>
+  \ <C-u> :call <SID>phpactorImportClass()<CR>
 function! s:phpactorImportClass()
   let isClass = expand('<cword>') is 'class'
   if !isClass
@@ -232,6 +234,18 @@ nnoremap zs zcjzo
 :tnoremap <Esc> <C-\><C-n>
 " yank the selected text via mouse
 vnoremap <LeftRelease> "*ygv
+" }}}
+" symfony {{{
+let g:symfonyNvimCamelCaseServiceNames = v:true
+
+autocmd VimEnter * :call symfony#startHere()
+autocmd FileType yamlSFconfig nnoremap <silent> <buffer>
+  \ <C-]> :call symfony#goto#inYamlSFconfig('inplace')<CR>
+autocmd FileType php nnoremap <silent> <buffer>
+  \ <C-]> :call symfony#goto#inPhp('inplace')<CR>
+
+nnoremap <C-p>s :Denite -start-filter -source-names=hide -buffer-name=symfony
+  \ symfony/service symfony/parameter symfony/entity<CR>
 " }}}
 " misc {{{
 let $LOCALFILE=expand("~/.nvim_local.vim")
