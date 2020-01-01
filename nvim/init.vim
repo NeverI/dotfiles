@@ -86,6 +86,8 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> y denite#do_map('do_action', 'yank')
   nnoremap <silent><buffer><expr> a denite#do_map('choose_action')
+  nnoremap <silent><buffer><expr> <C-a> denite#do_map('toggle_select_all')
+  nnoremap <silent><buffer><expr> <C-r> denite#do_map('restart')
   nnoremap <silent><buffer><expr> q denite#do_map('quit')
   nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
