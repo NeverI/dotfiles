@@ -255,7 +255,7 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
-if (has("termguicolors"))
+if (has("termguicolors") && $TERM is# 'xterm-256color')
  set termguicolors
 endif
 
