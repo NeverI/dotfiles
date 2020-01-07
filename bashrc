@@ -2,7 +2,6 @@
 [ -z "$PS1" ] && return
 
 source ~/.config/dotfiles/bash/env.sh
-source ~/.config/dotfiles/bash/bootstrap.sh
 source ~/.config/dotfiles/bash/settings.sh
 source ~/.config/dotfiles/bash/aliases.sh
 source ~/.config/dotfiles/bash/function.sh

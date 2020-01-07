@@ -1,3 +1,6 @@
+# reverse-i-search changed to hstr
+bind '"\C-r": "\e^ihh \n"'
+
 # Notify of job termination immediately.
 set -o notify
 # disallow existing regular files to be overwritten by redirection of output.
@@ -56,21 +59,16 @@ if [ -f ~/.fzf.bash ]; then
   _fzf_setup_completion path coffee node
 fi
 
-# use less as the default pager
-export PAGER=less
-# colorized man page
-export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
-export LESS_TERMCAP_me=$'\E[0m' # end mode
-export LESS_TERMCAP_se=$'\E[0m' # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m' # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m' # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-# usefull less settings
-export LESSCHARSET='utf-8'
-export LESS='-cwMR -j4 -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# Enabble grunt.js autocompletion
+eval "$(grunt --completion=bash)"
 
-# reverse-i-search changed to hstr
-bind '"\C-r": "\e^ihh \n"'
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/.config/dotfiles/bash/plugins/liquidprompt/liquidprompt
+
+# load fasd
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
