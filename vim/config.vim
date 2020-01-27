@@ -70,6 +70,8 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
+let mapleader = " "
+
 " easy wrapped line navigation with ctrl key
 vmap <C-j> gj
 vmap <C-k> gk
