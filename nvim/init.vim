@@ -10,7 +10,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#add('Shougo/denite.nvim')
-  call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/defx.nvim')
 
   call dein#add('phpactor/phpactor')
