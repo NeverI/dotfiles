@@ -46,6 +46,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
   call dein#add('NeverI/symfony.nvim')
+  call dein#add('NeverI/denite-git-repo.nvim')
 
   call dein#end()
   call dein#save_state()
@@ -90,6 +91,19 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> q denite#do_map('quit')
   nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+
+  if b:denite.buffer_name == 'git/repo'
+    nnoremap <silent><buffer><expr> s denite#do_map('do_action', 'status')
+    nnoremap <silent><buffer><expr> h denite#do_map('do_action', 'history')
+    nnoremap <silent><buffer><expr> f denite#do_map('do_action', 'fetch')
+    nnoremap <silent><buffer><expr> F denite#do_map('do_action', 'fetch_rebase')
+    nnoremap <silent><buffer><expr> r denite#do_map('do_action', 'rebase')
+    nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'push')
+    nnoremap <silent><buffer><expr> g denite#do_map('do_action', 'git')
+    nnoremap <silent><buffer><expr> G denite#do_map('do_action', 'git_show_output')
+    nnoremap <silent><buffer><expr> c denite#do_map('do_action', 'checkout')
+    nnoremap <silent><buffer><expr> C denite#do_map('do_action', 'checkout_smart_b')
+  endif
 endfunction
 
 autocmd FileType denite-filter call s:denite_filter_my_settings()
