@@ -275,6 +275,8 @@ autocmd FileType yamlSFconfig nnoremap <silent> <buffer>
   \ <C-]> :call symfony#goto#inYamlSFconfig('inplace')<CR>
 autocmd FileType php nnoremap <silent> <buffer>
   \ <C-]> :call symfony#goto#inPhp('inplace')<CR>
+autocmd FileType *twig nnoremap <silent> <buffer>
+  \ <C-]> :call symfony#goto#inTwig('inplace')<CR>
 
 nnoremap <C-p>s :Denite -start-filter -source-names=hide -buffer-name=symfony
   \ symfony/service symfony/parameter symfony/entity<CR>
