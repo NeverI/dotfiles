@@ -147,10 +147,20 @@ let g:nvim_typescript#default_mappings=1
 " PhpActor {{{
 let g:phpactorPhpBin = "/usr/bin/php7.1"
 
-autocmd FileType php inoremap <silent> <buffer>
-  \ <C-u> <ESC>:call <SID>phpactorImportClass()<CR>a
-autocmd FileType php nnoremap <silent> <buffer>
-  \ <C-u> :call <SID>phpactorImportClass()<CR>
+autocmd FileType php call s:phpactor_settings()
+function! s:phpactor_settings() abort
+  nnoremap <silent><buffer><expr>
+    \ <Leader>pu <SID>phpactorImportClass()
+  nnoremap <silent><buffer><expr>
+    \ <Leader>pc phpactor#ClassNew()
+  nnoremap <silent><buffer><expr>
+    \ <Leader>pm phpactor#ExtractMethod()
+  nnoremap <silent><buffer><expr>
+    \ <Leader>pt phpactor#Transfrom()
+  nnoremap <silent><buffer><expr>
+    \ <Leader>pi phpactor#Hover()
+endfunction
+
 function! s:phpactorImportClass()
   let isClass = expand('<cword>') is 'class'
   if !isClass
