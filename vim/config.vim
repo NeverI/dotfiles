@@ -19,6 +19,7 @@ set nolist
 set nrformats=
 set ruler " show current position in file
 set scrolloff=5 " show lines above and below cursor (when possible)
+set scrollopt+=hor
 set noshowmode " hide mode
 set backspace=indent,eol,start " allow backspacing over everything
 set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts
