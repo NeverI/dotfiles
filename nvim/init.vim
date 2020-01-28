@@ -193,6 +193,22 @@ function! s:defx_my_settings() abort
 	call defx#custom#option('_', {
 	      \ 'columns': 'mark:indent:icon:filename:type:size:time'
 	      \ })
+	call defx#custom#column('filename', {
+	      \ 'min_width': 80,
+	      \ 'max_width': 80,
+	      \ })
+	call defx#custom#column('time', {
+	      \ 'format': '%y-%m-%d %H:%M:%S',
+	      \ })
+	call defx#custom#column('icon', {
+	      \ 'directory_icon': '▸',
+	      \ 'opened_icon': '▾',
+	      \ 'root_icon': ' ',
+	      \ })
+	call defx#custom#column('mark', {
+	      \ 'readonly_icon': '✗',
+	      \ 'selected_icon': '✓',
+	      \ })
 
   nnoremap <silent><buffer><expr> h
     \ defx#do_action('cd', ['..'])
