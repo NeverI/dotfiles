@@ -224,10 +224,14 @@ function! s:defx_my_settings() abort
     \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <CR>
     \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> P
+  nnoremap <silent><buffer><expr> i
+   \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> I
     \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> o
-   \ defx#do_action('open', 'vsplit')
+    \ defx#is_opened_tree() ?
+      \ defx#do_action('multi', ['close_tree', 'open_tree_recursive']) :
+      \ defx#do_action('open_tree_recursive')
   nnoremap <silent><buffer><expr> O
     \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> ~
