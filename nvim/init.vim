@@ -290,6 +290,15 @@ function! s:defx_my_settings() abort
   \ defx#do_action('toggle_columns',
   \                'mark:indent:filename')
 endfunction
+
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+autocmd BufEnter * call s:open_defx_if_directory()
+function! s:open_defx_if_directory()
+  if isdirectory(expand('%:p'))
+    Defx `expand('%:p')`
+  endif
+endfunction
 " }}}
 " keymappings {{{
 
