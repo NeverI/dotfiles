@@ -211,24 +211,24 @@ function! s:defx_my_settings() abort
 	      \ })
 
   nnoremap <silent><buffer><expr> h
+    \ getline('.') =~ '\[in\]:' ? defx#do_action('cd', ['..']) : defx#do_action('close_tree')
+  nnoremap <silent><buffer><expr> H
     \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> j
     \ line('.') == line('$') ? 'gg' : 'j'
   nnoremap <silent><buffer><expr> k
     \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
-    \ defx#do_action('open')
+    \ defx#is_directory() ? defx#do_action('open_tree') : defx#do_action('open')
   nnoremap <silent><buffer><expr> L
-    \ defx#do_action('open', 'vsplit')
-  nnoremap <silent><buffer><expr> P
-    \ defx#do_action('open', 'pedit')
+    \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <CR>
     \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> P
+    \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> o
-    \ defx#do_action('open_or_close_tree')
+   \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> O
-    \ defx#do_action('close_tree')
-  nnoremap <silent><buffer><expr> x
     \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> ~
     \ defx#do_action('cd')
