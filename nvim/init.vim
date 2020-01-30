@@ -233,7 +233,7 @@ function! s:defx_my_settings() abort
     \ defx#do_action('drop')
   " preview in vertical view, but the cursor stay in the defx buffer
   nnoremap <silent><buffer> p
-    \ :<c-u>execute "normal! :call defx#call_action('drop')\r"<cr><C-w>h
+    \ :<c-u>silent execute "normal! :call defx#call_action('drop')\r"<cr><C-w>h
   nnoremap <silent><buffer><expr> i
    \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> I
