@@ -71,6 +71,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+autocmd FileType gitcommit :setlocal spell
+
 autocmd FileType GV call s:GV_settings()
 function! s:GV_settings() abort
   " next / prev commit and open all the fold
