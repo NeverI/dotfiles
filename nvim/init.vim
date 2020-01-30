@@ -224,6 +224,9 @@ function! s:defx_my_settings() abort
     \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <CR>
     \ defx#do_action('drop')
+  " preview in vertical view, but the cursor stay in the defx buffer
+  nnoremap <silent><buffer> p
+    \ :<c-u>execute "normal! :call defx#call_action('drop')\r"<cr><C-w>h
   nnoremap <silent><buffer><expr> i
    \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> I
@@ -246,7 +249,7 @@ function! s:defx_my_settings() abort
     \ defx#do_action('toggle_select_all')
   nnoremap <silent><buffer><expr> c
     \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> p
+  nnoremap <silent><buffer><expr> v
     \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> m
     \ defx#do_action('move')
