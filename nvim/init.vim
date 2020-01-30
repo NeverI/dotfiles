@@ -2,6 +2,13 @@
 
 source ~/.vim/config.vim
 
+" SID hack {{{
+function! s:SID_PREFIX() abort
+  return matchstr(expand('<sfile>'),
+  \ '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+let g:sid = s:SID_PREFIX()
+"}}}
 " plugins {{{
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.config/nvim/dein')
@@ -195,6 +202,8 @@ endfunction
 " defx {{{
 nnoremap <C-d> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
+let s:defx_directory_closed_icon = '▸'
+let s:defx_directory_opened_icon = '▾'
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
 	call defx#custom#option('_', {
@@ -208,8 +217,8 @@ function! s:defx_my_settings() abort
 	      \ 'format': '%y-%m-%d %H:%M:%S',
 	      \ })
 	call defx#custom#column('icon', {
-	      \ 'directory_icon': '▸',
-	      \ 'opened_icon': '▾',
+	      \ 'directory_icon': s:defx_directory_closed_icon,
+	      \ 'opened_icon': s:defx_directory_opened_icon,
 	      \ 'root_icon': ' ',
 	      \ })
 	call defx#custom#column('mark', {
@@ -223,8 +232,12 @@ function! s:defx_my_settings() abort
     \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> j
     \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> J
+    \ defx#do_action('call', g:sid.'jumpToDefxNextFolder')
   nnoremap <silent><buffer><expr> k
     \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> K
+    \ defx#do_action('call', g:sid.'jumpToDefxPreviousFolder')
   nnoremap <silent><buffer><expr> l
     \ defx#is_directory() ? defx#do_action('open_tree') : defx#do_action('open')
   nnoremap <silent><buffer><expr> L
@@ -300,6 +313,39 @@ function! s:defx_my_settings() abort
   \ defx#do_action('toggle_columns',
   \                'mark:indent:filename')
 endfunction
+
+" mapping functions {{{
+function! s:jumpToDefxPreviousFolder(_) abort
+  call s:jumpToDefxFolderInDirection('up')
+endfunction
+
+function! s:jumpToDefxFolderInDirection(direction) abort
+  let targetLine = a:direction == 'up' ? 1 : line('$')
+  let result = s:jumpToDefxFolderInOneDirection(a:direction, line('.'), targetLine)
+
+  if result is v:false
+    let startLine = a:direction == 'up' ? line('$') : 1
+    call s:jumpToDefxFolderInOneDirection(a:direction, startLine, line('.'))
+  endif
+endfunction
+
+function! s:jumpToDefxFolderInOneDirection(direction, startLine, targetLine) abort
+  let linenumb = a:startLine
+  while linenumb != a:targetLine
+    let linenumb += a:direction == 'up' ? -1 : 1
+    if getline(linenumb) =~ '['.s:defx_directory_closed_icon.s:defx_directory_opened_icon.']'
+      silent execute 'normal! :' . linenumb . "\r"
+      return v:true
+    endif
+  endwhile
+
+  return v:false
+endfunction
+
+function! s:jumpToDefxNextFolder(_) abort
+  call s:jumpToDefxFolderInDirection('down')
+endfunction
+"}}}
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
