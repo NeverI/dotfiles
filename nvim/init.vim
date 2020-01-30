@@ -319,6 +319,9 @@ nnoremap zs zcjzo
 :tnoremap <Esc> <C-\><C-n>
 " yank the selected text via mouse
 vnoremap <LeftRelease> "*ygv
+
+nnoremap <silent> <Leader><Leader>se :setlocal spell! spelllang=en_us<CR>
+nnoremap <silent> <Leader><Leader>sh :setlocal spell! spelllang=hu<CR>
 " }}}
 " symfony {{{
 let g:symfonyNvimCamelCaseServiceNames = v:true
