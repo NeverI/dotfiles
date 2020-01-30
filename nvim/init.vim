@@ -152,6 +152,11 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFToggle<CR>
 vnoremap <C-F>o <Esc>:CtrlSFToggle<CR>
 inoremap <C-F>o <Esc>:CtrlSFToggle<CR>
+
+let g:ctrlsf_auto_focus = {
+    \ "at" : "done",
+    \ "duration_less_than": 1000
+    \ }
 " }}}
 " typescript {{{
 
