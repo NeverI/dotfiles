@@ -35,3 +35,16 @@ export LESSCHARSET='utf-8'
 export LESS='-cwMR -j4 -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -f ~/.ssh/agent.env ] ; then
+    . ~/.ssh/agent.env > /dev/null
+    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+        echo "Stale agent file found. Spawning new agent… "
+        eval `ssh-agent | tee ~/.ssh/agent.env`
+        ssh-add
+    fi
+else
+    echo "Starting ssh-agent"
+    eval `ssh-agent | tee ~/.ssh/agent.env`
+    ssh-add
+fi
