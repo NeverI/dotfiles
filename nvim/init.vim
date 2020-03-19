@@ -388,12 +388,10 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
-if (has("termguicolors") && $TERM is# 'xterm-256color')
- set termguicolors
-endif
-
-let g:gruvbox_contract_dark='hard'
 let g:airline_theme='gruvbox'
+let g:gruvbox_italic=1
 colorscheme gruvbox
 hi! Normal ctermbg=NONE guibg=NONE
+highlight! SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+highlight! CursorLine term=bold cterm=bold guibg=NONE ctermbg=NONE
 " }}}
