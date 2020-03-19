@@ -1,0 +1,16 @@
+# sudo systemctl enable i3lock@USER
+
+[Unit]
+Description = Lock screen when going to sleep/suspend/hibernate
+
+[Service]
+User=%I
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3exit lock
+TimeoutSec=infinity
+
+[Install]
+WantedBy=sleep.target
+WantedBy=suspend.target
+WantedBy=hibernate.target
