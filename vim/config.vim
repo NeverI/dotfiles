@@ -81,6 +81,32 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
+" split navigation for i3
+nnoremap <A-h> <C-W>h
+nnoremap <A-j> <C-W>j
+nnoremap <A-k> <C-W>k
+nnoremap <A-l> <C-W>l
+
+nnoremap <A-H> <C-W>H
+nnoremap <A-J> <C-W>J
+nnoremap <A-K> <C-W>K
+nnoremap <A-L> <C-W>L
+
+nnoremap <A-x> <C-W>s
+nnoremap <A-y> <C-W>v
+nnoremap <A--> <C-w>-
+nnoremap <A-+> <C-w>+
+nnoremap <A-_> <C-w>_
+"nnoremap <A-|> <C-w>|
+nnoremap <A-=> <C-w>=
+
+nnoremap <A-q> :q<CR>
+nnoremap <A-Q> :tabclose<CR>
+nnoremap <A-C-h> :tabprev<CR>
+nnoremap <A-C-l> :tabnext<CR>
+
+nnoremap <A-^> <C-^>
+
 onoremap ni' :<c-u>normal! f'vi'<cr>
 onoremap Ni' :<c-u>normal! F'vi'<cr>
 onoremap ni" :<c-u>normal! f"vi"<cr>

@@ -142,25 +142,24 @@ call denite#custom#option('_', 'highlight_matched_range', 'None')
 call denite#custom#option('_', 'highlight_matched_char', 'Statement')
 call denite#custom#option('_', 'statusline', v:false)
 
-nnoremap <C-p> :Denite -start-filter -buffer-name=files file/rec<cr>
-nnoremap <C-p>p :Denite -start-filter -buffer-name=files file/rec:
-nnoremap <C-p>w :DeniteCursorWord -buffer-name=files file/rec<cr>
-nnoremap <C-b> :Denite -buffer-name=buffers buffer<cr>
-nnoremap <C-p>r :Denite -resume -buffer-name=files<cr>
-nnoremap <C-p>l :Denite -buffer-name=lines line<cr>
-nnoremap <C-p>g :Denite -buffer-name=grep grep
-nnoremap <C-p>m :Denite --start-filter file_mru<cr>
+nnoremap <A-p> :Denite -start-filter -buffer-name=files file/rec<cr>
+nnoremap <A-d> :Denite -start-filter -buffer-name=files file/rec:
+nnoremap <A-d>w :DeniteCursorWord -buffer-name=files file/rec<cr>
+nnoremap <A-b> :Denite -buffer-name=buffers buffer<cr>
+nnoremap <A-d>r :Denite -resume -buffer-name=files<cr>
+nnoremap <A-d>l :Denite -buffer-name=lines line<cr>
+nnoremap <A-d>g :Denite -buffer-name=grep grep
 " }}}
 " CtrlSF {{{
 let g:ctrlsf_ackprg = 'rg'
 let g:ctrlsf_case_sensitive = 'yes'
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-nmap     <C-F>f <Plug>CtrlSFPrompt
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFToggle<CR>
-vnoremap <C-F>o <Esc>:CtrlSFToggle<CR>
-inoremap <C-F>o <Esc>:CtrlSFToggle<CR>
+vmap     <a-f>f <Plug>CtrlSFVwordPath
+nmap     <a-f>f <Plug>CtrlSFPrompt
+nmap     <a-f>n <Plug>CtrlSFCwordPath
+nmap     <a-f>p <Plug>CtrlSFPwordPath
+nnoremap <a-f>o :CtrlSFToggle<CR>
+vnoremap <a-f>o <Esc>:CtrlSFToggle<CR>
+inoremap <a-f>o <Esc>:CtrlSFToggle<CR>
 
 let g:ctrlsf_auto_focus = {
     \ "at" : "done",
