@@ -1,0 +1,45 @@
+URxvt.loginShell: True
+!URxvt.name: rxvt-256color
+
+URxvt.depth: 32
+URxvt.geometry: 80x30
+
+!URxvt.font:xft:Liberation Mono:size=10
+!URxvt.font:xft:Ubuntu Mono:size=12
+!URxvt.font:xft:Droid Sans Mono:size=11
+URxvt.font:xft:Hack:size=9
+Xft*dpi: 96
+
+URxvt.scrollBar: False
+URxvt.scrollBar_right: True
+URxvt.internalBorder:
+
+URxvt.jumpScroll: True
+URxvt.scrollTtyOutput: False
+URxvt.scrollWithBuffer: True
+URxvt.scrollTtyKeypress: True
+URxvt.saveLines: 8192
+
+URxvt.perl-ext-common: default,clipboard,font-size,matcher
+
+! enable ctrl+shift+c and ctrl+shift+v copy/pase
+URxvt.iso14755: False
+URxvt.iso14755_52: False
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+! control+shift+arrow for font size adjustment
+URxvt.keysym.C-S-Up: perl:font-size:increase
+URxvt.keysym.C-S-Down: perl:font-size:decrease
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+! fix control+arrow keys in vim insert abcd
+URxvt.keysym.C-Up: \033[1;5A
+URxvt.keysym.C-Down: \033[1;5B
+URxvt.keysym.C-Left: \033[1;5D
+URxvt.keysym.C-Right: \033[1;5C
+
+! home and end keys
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~

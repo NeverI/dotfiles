@@ -71,6 +71,8 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
+au! BufNewFile,BufRead *Xresources.d/* set filetype=xdefaults
+
 let mapleader = " "
 
 " easy wrapped line navigation with ctrl key
