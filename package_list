@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
 
 # install with apt-get
-install mc
+install i3
 install git
-install tmux
 install xsel
 install xclip
-install wmctrl
-install exuberant-ctags
 install tilix
+install wmctrl
+install compton
+install rg "ripgrep"
 install nvim "neovim"
 install mongo "mongodb"
 install pip "python-pip"
-install urxvt "rxvt-unicode"
-install ag "silversearcher-ag"
-install rg "ripgrep"
+install urxvt "rxvt-unicode-256color"
 
-# hh is a promising bash history manager
 install_from_ppa hh "ultradvorka/ppa"
-install_from_ppa numix-gtk-theme "numix/ppa"
 install_from_ppa doublecmd-gtk "alexx2000/doublecmd"
 
 install_from_npm grunt "grunt-cli"
 
-# python version of the tmuxinator
-install_from_pip tmuxp
+install_from_pip "py3status"
