@@ -87,6 +87,7 @@ function! s:GV_settings() abort
   nmap sj jo<c-w>lzR<c-w>h
   nmap sk ko<c-w>lzR<c-w>h
 endfunction
+
 " }}}
 " denite {{{
 autocmd FileType denite call s:denite_my_settings()
@@ -263,6 +264,8 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> ~
     \ defx#do_action('cd')
   nnoremap <silent><buffer><expr> cd
+    \ defx#do_action('call', g:sid.'setLocalCwdFromDefx')
+  nnoremap <silent><buffer><expr> cD
     \ defx#do_action('change_vim_cwd')
   nnoremap <silent><buffer><expr> .
     \ defx#do_action('toggle_ignored_files')
@@ -316,7 +319,6 @@ function! s:defx_my_settings() abort
   \ defx#do_action('toggle_columns',
   \                'mark:indent:filename')
 endfunction
-
 " mapping functions {{{
 function! s:jumpToDefxPreviousFolder(_) abort
   call s:jumpToDefxFolderInDirection('up')
@@ -348,8 +350,17 @@ endfunction
 function! s:jumpToDefxNextFolder(_) abort
   call s:jumpToDefxFolderInDirection('down')
 endfunction
-"}}}
 
+function! s:setLocalCwdFromDefx(context)
+  let candidate = defx#get_candidate()
+  let dir = candidate.action__path
+  if !candidate.is_directory
+    let dir = fnamemodify(dir, ':h')
+  endif
+
+  execute 'lcd ' . dir
+endfunction
+"}}}
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 autocmd BufEnter * call s:open_defx_if_directory()
@@ -360,7 +371,6 @@ function! s:open_defx_if_directory()
 endfunction
 " }}}
 " keymappings {{{
-
 " close and jump to the next or prev file on the log view
 nnoremap zw zckzo
 nnoremap zs zcjzo
