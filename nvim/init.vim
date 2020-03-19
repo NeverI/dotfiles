@@ -45,6 +45,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-fugitive')
   call dein#add('junegunn/gv.vim')
 
+  call dein#add('chrisbra/Colorizer')
   call dein#add('w0rp/ale')
   call dein#add('gkz/vim-ls')
   call dein#add('evidens/vim-twig')
@@ -165,6 +166,9 @@ let g:ctrlsf_auto_focus = {
     \ "at" : "done",
     \ "duration_less_than": 1000
     \ }
+" }}}
+" Colorizer {{{
+let g:colorizer_use_virtual_text = 1
 " }}}
 " typescript {{{
 
