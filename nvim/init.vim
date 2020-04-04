@@ -275,21 +275,21 @@ function! s:defx_my_settings() abort
     \ defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> <c-a>
     \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> c
+  nnoremap <silent><buffer><expr> cc
     \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> v
+  nnoremap <silent><buffer><expr> vv
     \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> m
+  nnoremap <silent><buffer><expr> mm
     \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> r
+  nnoremap <silent><buffer><expr> rr
     \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> d
+  nnoremap <silent><buffer><expr> dd
     \ defx#do_action('remove')
   nnoremap <silent><buffer><expr> D
     \ defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> F
     \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> y
+  nnoremap <silent><buffer><expr> yy
     \ defx#do_action('yank_path')
   nnoremap <silent><buffer><expr> ;
     \ defx#do_action('repeat')
