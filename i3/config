@@ -227,8 +227,7 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
 bindsym XF86TouchpadToggle exec .config/i3/scripts/touchpad-toggle.sh
 
-#exec --no-startup-id compton -b --active-opacity 1 --config ~/.compton --backend xrender
-exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.cnf -b
+exec --no-startup-id compton --config ~/.config/compton.cnf -b
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $variant1_color $variant1_color $hard_bg $degraded_color $variant1_color
