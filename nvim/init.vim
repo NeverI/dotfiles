@@ -208,28 +208,30 @@ nnoremap <C-d> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 let s:defx_directory_closed_icon = '▸'
 let s:defx_directory_opened_icon = '▾'
+
+call defx#custom#option('_', {
+      \ 'show_ignored_files': 1,
+      \ 'columns': 'mark:indent:icon:filename:type:size:time'
+      \ })
+call defx#custom#column('filename', {
+      \ 'min_width': 80,
+      \ 'max_width': 80,
+      \ })
+call defx#custom#column('time', {
+      \ 'format': '%y-%m-%d %H:%M:%S',
+      \ })
+call defx#custom#column('icon', {
+      \ 'directory_icon': s:defx_directory_closed_icon,
+      \ 'opened_icon': s:defx_directory_opened_icon,
+      \ 'root_icon': ' ',
+      \ })
+call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
+      \ })
+
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
-	call defx#custom#option('_', {
-	      \ 'columns': 'mark:indent:icon:filename:type:size:time'
-	      \ })
-	call defx#custom#column('filename', {
-	      \ 'min_width': 80,
-	      \ 'max_width': 80,
-	      \ })
-	call defx#custom#column('time', {
-	      \ 'format': '%y-%m-%d %H:%M:%S',
-	      \ })
-	call defx#custom#column('icon', {
-	      \ 'directory_icon': s:defx_directory_closed_icon,
-	      \ 'opened_icon': s:defx_directory_opened_icon,
-	      \ 'root_icon': ' ',
-	      \ })
-	call defx#custom#column('mark', {
-	      \ 'readonly_icon': '✗',
-	      \ 'selected_icon': '✓',
-	      \ })
-
   nnoremap <silent><buffer><expr> h
     \ getline('.') =~ '\[in\]:' ? defx#do_action('cd', ['..']) : defx#do_action('close_tree')
   nnoremap <silent><buffer><expr> H
