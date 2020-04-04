@@ -312,9 +312,9 @@ function! s:defx_my_settings() abort
     \ defx#do_action('multi', [['toggle_sort', 'Time'], 'redraw'])
   nnoremap <silent><buffer><expr> sD
     \ defx#do_action('multi', [['toggle_sort', 'time'], 'redraw'])
-  nnoremap <silent><buffer><expr> ss
-    \ defx#do_action('multi', [['toggle_sort', 'size'], 'redraw'])
   nnoremap <silent><buffer><expr> sS
+    \ defx#do_action('multi', [['toggle_sort', 'size'], 'redraw'])
+  nnoremap <silent><buffer><expr> ss
     \ defx#do_action('multi', [['toggle_sort', 'Size'], 'redraw'])
 
   nnoremap <silent><buffer><expr> C
