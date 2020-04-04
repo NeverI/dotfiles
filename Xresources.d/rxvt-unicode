@@ -20,16 +20,18 @@ URxvt.scrollWithBuffer: True
 URxvt.scrollTtyKeypress: True
 URxvt.saveLines: 8192
 
-URxvt.perl-ext-common: default,clipboard,font-size,matcher
+URxvt.perl-ext-common: default,font-size,matcher,keyboard-select
 
 ! enable ctrl+shift+c and ctrl+shift+v copy/pase
 URxvt.iso14755: False
 URxvt.iso14755_52: False
-URxvt.keysym.C-C: perl:clipboard:copy
-URxvt.keysym.C-V: perl:clipboard:paste
 ! control+shift+arrow for font size adjustment
 URxvt.keysym.C-S-Up: perl:font-size:increase
 URxvt.keysym.C-S-Down: perl:font-size:decrease
+
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: True
 
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
