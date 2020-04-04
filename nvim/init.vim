@@ -204,7 +204,7 @@ function! s:phpactorImportClass()
 endfunction
 " }}}
 " defx {{{
-nnoremap <C-d> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+nnoremap <a-d> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 let s:defx_directory_closed_icon = '▸'
 let s:defx_directory_opened_icon = '▾'
@@ -267,13 +267,13 @@ function! s:defx_my_settings() abort
     \ defx#do_action('cd')
   nnoremap <silent><buffer><expr> cd
     \ defx#do_action('call', g:sid.'setLocalCwdFromDefx')
-  nnoremap <silent><buffer><expr> cD
+  nnoremap <silent><buffer><expr> CD
     \ defx#do_action('change_vim_cwd')
   nnoremap <silent><buffer><expr> .
     \ defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr> <Space>
     \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
+  nnoremap <silent><buffer><expr> <c-a>
     \ defx#do_action('toggle_select_all')
   nnoremap <silent><buffer><expr> c
     \ defx#do_action('copy')
