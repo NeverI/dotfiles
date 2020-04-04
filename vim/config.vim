@@ -74,7 +74,7 @@ augroup END
 
 au! BufNewFile,BufRead *Xresources.d/* set filetype=xdefaults
 
-let mapleader = " "
+let mapleader = "í"
 
 " easy wrapped line navigation with ctrl key
 vmap <C-j> gj
