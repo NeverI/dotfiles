@@ -14,7 +14,7 @@ export HISTSIZE=1000
 export HISTFILESIZE=5000
 
 # immediatly flush the commands to the history, so other session can access to it
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # enable colors for hstr
 # promising history search app (https://github.com/dvorka/hstr)

@@ -62,9 +62,6 @@ fi
 # Enabble grunt.js autocompletion
 eval "$(grunt --completion=bash)"
 
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source ~/.config/dotfiles/bash/plugins/liquidprompt/liquidprompt
-
 # load fasd
 fasd_cache="$HOME/.fasd-init-bash"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
@@ -72,3 +69,6 @@ if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
 fi
 source "$fasd_cache"
 unset fasd_cache
+
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/.config/dotfiles/bash/plugins/liquidprompt/liquidprompt
