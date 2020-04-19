@@ -10,7 +10,7 @@
 
 - link:
     ~/.config/dotfiles: ''
-    ~/.profile: profile
+    ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.inputrc: inputrc
