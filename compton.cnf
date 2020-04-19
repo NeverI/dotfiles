@@ -21,7 +21,6 @@ shadow-exclude = [
                "n:e:Notification",
                "class_g = 'Gnome-screenshot'"
                ];
-               #"_GTK_FRAME_EXTENTS@:c"
 
 
 shadow-ignore-shaped = false;   # Avoid drawing shadow on all shaped windows (see also: --detect-rounded-corners)
@@ -32,6 +31,9 @@ active-opacity = 1.0;
 menu-opacity = 1.0;                    # The opacity for menus. (default 1.0)
 inactive-opacity = 0.75;               # Opacity of inactive windows. (0.1 - 1.0)
 inactive-opacity-override = true;      # Inactive opacity set by 'inactive-opacity' overrides value of _NET_WM_OPACITY.
+opacity-rule = [
+  "0:_NET_WM_STATE@[0]:32a = '_NET_WM_STATE_HIDDEN'"
+];
 
 # Other
 inactive-dim = 0.15;            # Dim inactive windows. (0.0 - 1.0, defaults to 0).
