@@ -48,8 +48,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -name FloatMe
 
 # kill focused window
-bindsym $mod+Shift+q kill
-bindsym $mod+F4 kill
+bindsym $mod+shift+q kill
 
 # start dmenu (a program launcher)
 exec_always --no-startup-id echo "/usr/bin/dmenu -fn 'Hack-10' -nb '$bg' -nf '$attention_color' -sb '$variant1_color' -sf '$fg' \$@" > ~/dotfiles/bin/dmenu
