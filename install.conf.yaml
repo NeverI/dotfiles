@@ -22,6 +22,8 @@
     ~/.tmux.conf: tmux.conf
     ~/.screenrc: screenrc
     ~/.config/i3: i3
+    ~/.config/qutebrowser/config.py: qutebrowser/config.py
+    ~/.config/qutebrowser/autoconfig.yml: qutebrowser/autoconfig.yml
     ~/.config/compton.cnf: compton.cnf
     ~/.config/liquidpromptrc: bash/liquidpromptrc
     ~/bin/fasd: bash/plugins/fasd/fasd
