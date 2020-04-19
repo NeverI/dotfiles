@@ -108,19 +108,19 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+p focus child
 
 set $home "1: home"
-set $terminal "2: terms"
-set $web "3: web"
+set $web "2: web"
+set $terminal "3: terms"
 set $mail "4: mail"
 set $workbench "5: workbench"
 set $other "6: other"
 
 # switch to workspace
 bindsym $mod+1 workspace $home
-bindsym $mod+2 workspace $terminal
-bindsym $mod+3 workspace $web
+bindsym $mod+2 workspace $web
+bindsym $mod+3 workspace $terminal
 bindsym $mod+4 workspace $mail
 bindsym $mod+5 workspace $workbench
 bindsym $mod+6 workspace $other
