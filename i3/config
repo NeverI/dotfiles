@@ -56,6 +56,7 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+F1 exec ~/bin/projectmenu ~/workspace
 bindsym $mod+F2 exec ~/bin/uttmenu
 bindsym $mod+F3 exec PASSWORD_STORE_CLIP_TIME=5 passmenu
+bindsym $mod+F4 exec ~/bin/quickeditmenu
 
 # change focus
 bindsym $mod+h focus left

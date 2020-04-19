@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cmd=$(cat ~/.quickedit  | dmenu "$@")
+
+[[ -n $cmd ]] || exit
+
+recent_list "$cmd" ~/.quickedit
+urxvt -name FloatMe -e bash -ic "$cmd"
