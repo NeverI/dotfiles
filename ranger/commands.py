@@ -11,6 +11,7 @@ from __future__ import (absolute_import, division, print_function)
 
 # You can import any python module as needed.
 import os
+import subprocess
 
 # You always need to import ranger.api.commands here to get the Command class:
 from ranger.api.commands import Command
@@ -126,3 +127,17 @@ class extract(Command):
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
 
+class dmenu_select(Command):
+    """
+    use dmenu to fuzzy find a file via ripgrep
+    """
+    def execute(self):
+        command="rg --files --sort path | dmenu -l 20"
+        dmenu = self.fm.execute_command(command, stdout=subprocess.PIPE)
+        stdout, stderr = dmenu.communicate()
+        if dmenu.returncode == 0:
+            selected = os.path.abspath(stdout.decode('utf-8'))
+            if os.path.isdir(selected):
+                self.fm.cd(selected)
+            else:
+                self.fm.select_file(selected)
