@@ -20,6 +20,8 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # promising history search app (https://github.com/dvorka/hstr)
 export HH_CONFIG=hicolor,keywords,rawhistory
 
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
 # use less as the default pager
 export PAGER=less
 # colorized man page
