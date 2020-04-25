@@ -19,7 +19,6 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.config/nvim: nvim
-    ~/.tmux.conf: tmux.conf
     ~/.config/ranger: ranger
     ~/.screenrc: screenrc
     ~/.config/i3: i3
@@ -27,14 +26,11 @@
     ~/.config/qutebrowser/autoconfig.yml: qutebrowser/autoconfig.yml
     ~/.config/compton.cnf: compton.cnf
     ~/.config/liquidpromptrc: bash/liquidpromptrc
-    ~/bin/fasd: bash/plugins/fasd/fasd
 
 - shell:
     - git submodule update --init --recursive
 
 - link:
-    ~/.urxvt/ext/clipboard: bash/plugins/urxvt-perls/clipboard
-    ~/.urxvt/ext/url-select: bash/plugins/urxvt-perls/url-select
+    ~/.urxvt/ext/matcher: bash/plugins/urxvt-font-size/matcher
     ~/.urxvt/ext/font-size: bash/plugins/urxvt-font-size/font-size
-    ~/.urxvt/ext/fullscreen: bash/plugins/urxvt-myscripts/fullscreen
     ~/.urxvt/ext/keyboard-select: bash/plugins/urxvt-perls/keyboard-select
