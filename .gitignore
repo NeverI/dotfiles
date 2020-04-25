@@ -8,3 +8,8 @@ vim/UltiSnips/*_local.snippets
 nvim/dein
 nvim/.netrwhist
 Session.vim
+*.pyo
+ranger/plugins/__init__.py
+ranger/bookmarks
+ranger/history
+ranger/tagged
