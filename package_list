@@ -7,6 +7,10 @@ install xsel
 install xclip
 install tilix
 install wmctrl
+install atool
+install bat
+install xls2csv
+install ranger
 install compton
 install rg "ripgrep"
 install nvim "neovim"
