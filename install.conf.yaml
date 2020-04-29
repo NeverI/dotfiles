@@ -7,6 +7,7 @@
     - mkdir -p vim/swap
     - mkdir -p vim/backup
     - mkdir -p ~/.urxvt/ext
+    - mkdir -p ~/.config/dunst
 
 - link:
     ~/.config/dotfiles: ''
@@ -21,6 +22,7 @@
     ~/.config/nvim: nvim
     ~/.config/ranger: ranger
     ~/.screenrc: screenrc
+    ~/.config/dunst/dunstrc: dunstrc
     ~/.config/i3: i3
     ~/.config/qutebrowser/config.py: qutebrowser/config.py
     ~/.config/qutebrowser/autoconfig.yml: qutebrowser/autoconfig.yml
