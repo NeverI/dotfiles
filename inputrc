@@ -45,7 +45,3 @@ set keymap vi-insert
 TAB: menu-complete
 # shift-TAB cycles completions backward
 "\e[Z": menu-complete-backward
-
-# ctrl-p/n history search
-"\C-p": history-search-backward
-"\C-n": history-search-forward
