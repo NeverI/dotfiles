@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cmd=$(cat ~/.quickrun  | dmenu -i)
+
+[[ -n $cmd ]] || exit
+
+recent_list "$cmd" ~/.quickrun
+
+st -n FloatMe -e bash -c "$cmd || (echo ' ' && read -p 'Command failed, press enter...')"
