@@ -2,9 +2,15 @@
 
 cmd=$(cat ~/.quickedit  | dmenu "$@")
 
-[[ -n $cmd ]] || exit
+[[ -n $file ]] || exit
 
-recent_list "$cmd" ~/.quickedit
-urxvt -name FloatMe -e bash -ic "$cmd"
+recent_list "$file" ~/.quickedit
+
+fullpath=$(echo "$file" | sed "s,~,$HOME,")
+cmd="nvim $fullpath"
+
+if [[ "$fullpath" =~ !$ ]]; then
+  cmd=$(echo "sudo $cmd" | cut -d'!' -f1)
+fi
 
 st -n FloatMe -e $cmd
