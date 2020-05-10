@@ -404,6 +404,7 @@ if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
 
+set termguicolors
 let g:airline_theme='gruvbox'
 let g:gruvbox_italic=1
 colorscheme gruvbox

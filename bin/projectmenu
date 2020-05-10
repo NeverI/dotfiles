@@ -7,4 +7,9 @@ dir=$(ls -1td */ | dmenu -i)
 [[ -n $dir ]] || exit
 
 cd $dir
-urxvt -e bash -ic "[[ -f Session.vim ]] && nvim -S Session.vim || nvim ."
+
+if [[ -f Session.vim ]]; then
+  st -e nvim -S Session.vim
+else
+  st -e nvim .
+fi

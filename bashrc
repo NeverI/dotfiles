@@ -9,5 +9,3 @@ source ~/.config/dotfiles/bash/function.sh
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local
 fi
-
-source ~/.config/dotfiles/nvim/dein/repos/github.com/morhetz/gruvbox/gruvbox_256palette.sh

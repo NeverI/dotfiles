@@ -6,3 +6,5 @@ cmd=$(cat ~/.quickedit  | dmenu "$@")
 
 recent_list "$cmd" ~/.quickedit
 urxvt -name FloatMe -e bash -ic "$cmd"
+
+st -n FloatMe -e $cmd
