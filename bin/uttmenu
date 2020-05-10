@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-what=$(tail -n 500 ~/.local/share/utt/utt.log | grep -v "^$" | sed 's/^\([0-9: -]\+\) //'| tac | awk '!x[$0]++' | dmenu -i)
-
-[[ -n $what ]] || exit
-
-utt add "$what"

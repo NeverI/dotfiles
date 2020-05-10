@@ -54,12 +54,12 @@ bindsym $mod+shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run_i
 bindsym $mod+Shift+d exec i3-dmenu-desktop
+bindsym $mod+Ctrl+d exec quickrunmenu ~/.quickrun
 bindsym $mod+F1 exec projectmenu ~/workspace
-bindsym $mod+F2 exec uttmenu
+bindsym $mod+F2 exec uttmenu ~/.local/share/utt/utt.log
 bindsym $mod+F3 exec PASSWORD_STORE_CLIP_TIME=5 passmenu
-bindsym $mod+F4 exec quickeditmenu
-bindsym $mod+F5 exec quickrunmenu
-bindsym $mod+F6 exec xdgopenmenu ~/Letöltések
+bindsym $mod+F4 exec quickeditmenu ~/.quickedit
+bindsym $mod+F5 exec xdgopenmenu ~/Letöltések
 
 # change focus
 bindsym $mod+h focus left
