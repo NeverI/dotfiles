@@ -37,6 +37,7 @@ config.bind(',V', 'hint links spawn mpv {hint-url}')
 c.aliases['x'] = 'quit --save'
 c.hints.selectors['all'].append('span[class~=link]')
 c.hints.selectors['all'].append('span[class~=button]')
+c.hints.selectors['all'].append('i[class~=close]')
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
@@ -53,7 +54,7 @@ c.completion.web_history.exclude = [
     "https://www.google.com/search"
 ]
 
-c.editor.command = ["urxvt", "-e", "bash", "-ic", "nvim {}"]
+c.editor.command = ["st", "-e", "nvim", "{}"]
 
 import subprocess
 

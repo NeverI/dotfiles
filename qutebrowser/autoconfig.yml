@@ -54,6 +54,8 @@ settings:
     https://www.alza.hu: true
   content.headers.accept_language:
     global: hu-HU,hu;q=0.9
+  content.host_blocking.enabled:
+    global: false
   content.media_capture:
     global: ask
     https://whereby.com: true
@@ -61,6 +63,7 @@ settings:
     https://app.slack.com: true
     https://mattermost.intranet.agmen: true
     https://www.facebook.com: false
+    https://www.penzcentrum.hu: false
     https://www.reddit.com: false
     https://www.youtube.com: false
   content.pdfjs:
@@ -80,7 +83,7 @@ settings:
   fonts.default_family:
     global: Hack
   fonts.default_size:
-    global: 10pt
+    global: 12px
   hints.chars:
     global: asdfghjkl
   hints.hide_unmatched_rapid_hints:
@@ -99,8 +102,10 @@ settings:
     global: false
   tabs.new_position.related:
     global: next
+  tabs.new_position.unrelated:
+    global: last
   tabs.select_on_remove:
-    global: last-used
+    global: prev
   tabs.show:
     global: always
   tabs.show_switching_delay:
