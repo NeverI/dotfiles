@@ -1,6 +1,8 @@
 # reverse-i-search changed to hstr
 bind '"\C-r": "\e^ihh \n"'
 
+setxkbmap -option caps:ctrl_modifier
+
 # Notify of job termination immediately.
 set -o notify
 # disallow existing regular files to be overwritten by redirection of output.

@@ -1,6 +1,3 @@
-# remap capslock to ctrl
-XKBOPTIONS="ctrl:nocaps"
-
 # pgup and pgdown key
 "\e[5~": forward-word
 "\e[6~": backward-word
