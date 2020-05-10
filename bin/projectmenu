@@ -2,7 +2,7 @@
 
 cd $1
 
-dir=$(ls -1td */ | dmenu -i)
+dir=$(ls -1td */ | dmenu -i -n)
 
 [[ -n $dir ]] || exit
 

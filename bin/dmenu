@@ -1,1 +1,0 @@
-/usr/bin/dmenu -fn 'Hack-10' -nb '#32302f' -nf '#d79921' -sb '#458588' -sf '#ebdbb2' $@
