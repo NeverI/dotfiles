@@ -1,7 +1,8 @@
 # reverse-i-search changed to hstr
 bind '"\C-r": "\e^ihh \n"'
 
-setxkbmap -option caps:ctrl_modifier
+setxkbmap -option caps:backspace
+setxkbmap -option ctrl:menu_rctrl
 
 # Notify of job termination immediately.
 set -o notify
