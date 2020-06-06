@@ -235,7 +235,7 @@ bindsym XF86TouchpadToggle exec .config/i3/scripts/touchpad-toggle.sh
 exec --no-startup-id compton --config ~/.config/compton.cnf -b
 
 # class                 border|backgr|text|indicator|child_border
-client.focused          $variant1_color $variant1_color $fg $degraded_color $variant1_color
+client.focused          $variant1_color $variant1_color $bg $degraded_color $variant1_color
 client.focused_inactive $bg $bg $attention_color $degraded_color $bg
 client.unfocused        $bg $bg $attention_color $degraded_color $bg
 client.urgent           $warning_color $warning_color $fg $warning_color $warning_color
@@ -250,7 +250,7 @@ bar {
         statusline $attention_color
 
         #                    border  backgr. text
-        focused_workspace    $variant1_color $variant1_color $fg
+        focused_workspace    $variant1_color $variant1_color $bg
         inactive_workspace   $bg $bg $attention_color
         active_workspace     $bg $bg $attention_color
         urgent_workspace     $warning_color $warning_color $fg
