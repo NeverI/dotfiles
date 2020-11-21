@@ -134,8 +134,8 @@ bindsym $mod+odiaeresis workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $home
-bindsym $mod+Shift+2 move container to workspace $terminal
-bindsym $mod+Shift+3 move container to workspace $web
+bindsym $mod+Shift+2 move container to workspace $web
+bindsym $mod+Shift+3 move container to workspace $terminal
 bindsym $mod+Shift+4 move container to workspace $mail
 bindsym $mod+Shift+5 move container to workspace $workbench
 bindsym $mod+Shift+6 move container to workspace $other
@@ -154,7 +154,7 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 
 assign [class="Google-chrome" instance="google-chrome"] → $web
-assign [class="qutebrowser" instance="__main__.py"] → $web
+assign [class="qutebrowser" instance="qutebrowser"] → $web
 assign [class="Thunderbird" instance="Mail"] → $mail
 assign [class="Mysql-workbench-bin" instance="mysql-workbench-bin"] → $workbench
 
