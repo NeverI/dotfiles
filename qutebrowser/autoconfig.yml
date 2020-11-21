@@ -51,23 +51,36 @@ settings:
     https://whereby.com: true
   content.geolocation:
     global: ask
+    https://euronics.hu: false
     https://www.alza.hu: true
   content.headers.accept_language:
     global: hu-HU,hu;q=0.9
   content.host_blocking.enabled:
     global: false
-  content.media_capture:
+  content.javascript.can_open_tabs_automatically:
+    global: true
+  content.media.audio_capture:
+    global: ask
+    https://whereby.com: true
+  content.media.audio_video_capture:
+    global: ask
+    https://whereby.com: true
+  content.media.video_capture:
     global: ask
     https://whereby.com: true
   content.notifications:
     https://app.slack.com: true
+    https://hu.jooble.org: false
     https://mattermost.intranet.agmen: true
     https://www.facebook.com: false
+    https://www.networkworld.com: false
     https://www.penzcentrum.hu: false
     https://www.reddit.com: false
     https://www.youtube.com: false
   content.pdfjs:
     global: true
+  content.private_browsing:
+    global: false
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
@@ -98,8 +111,8 @@ settings:
     global: true
   spellcheck.languages:
     global: null
-  statusbar.hide:
-    global: false
+  statusbar.show:
+    global: always
   tabs.new_position.related:
     global: next
   tabs.new_position.unrelated:
