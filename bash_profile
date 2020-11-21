@@ -15,6 +15,10 @@ if [ -d ~/.config/dotfiles/bin ] && [[ :$PATH: != *:"$HOME/.config/dotfiles/bin"
     PATH="$HOME/.config/dotfiles/bin:$PATH"
 fi
 
+if [ -d ~/.local/bin ] && [[ :$PATH: != *:"$HOME/.local/bin":* ]] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] && [[ :$PATH: != *:"$HOME/bin":* ]] ; then
     PATH="$HOME/bin:$PATH"
@@ -31,4 +35,8 @@ fi
 # Allow local customization in the ~/.profile_local file
 if [ -f ~/.profile_local ] ; then
     source ~/.profile_local
+fi
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+startx && exit
 fi
