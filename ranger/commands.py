@@ -17,10 +17,6 @@ import subprocess
 from ranger.api.commands import Command
 from ranger.core.loader import CommandLoader
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
 class my_edit(Command):
