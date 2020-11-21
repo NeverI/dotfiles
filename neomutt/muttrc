@@ -1,0 +1,119 @@
+source ~/dotfiles/neomutt/gruvbox.muttrc
+source ~/dotfiles/neomutt/gruvbox-extended.muttrc
+
+set editor = nvim
+set date_format = "%Y/%m/%d %I:%M%p"
+set index_format = "%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set timeout = 20
+set sort = reverse-threads
+set sort_aux = last-date-received
+set rfc2047_parameters = yes
+set sleep_time = 0		# Pause 0 seconds for informational messages
+set markers = no		# Disables the `+` displayed at line wraps
+set mark_old = no		# Unread mail stay unread until read
+set wait_key = no		# mutt won't ask "press key to continue"
+set fast_reply = yes		# skip to compose when replying
+set fcc_attach = yes			# save attachments with the body
+set forward_format = "Fwd: %s"	# format of subject when forwarding
+set forward_quote = yes		# include message in forwards
+set mime_forward = no		# attachments are forwarded with mail
+set reverse_name		# reply as whomever it was to
+set include			# include message in replies
+set copy = no
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/plain text/enriched text/html
+
+set nm_db_limit = 0
+set nm_exclude_tags = ""
+set nm_open_timeout = 5
+set nm_query_type = threads
+set nm_record = no
+set nm_record_tags = ""
+set nm_unread_tag = unread
+# This variable allows you to customize the file browser display for virtual
+# folders to your personal taste.
+# %C   current folder number
+# %f   folder name (description)
+# %m   number of messages in the mailbox *
+# %n   number of unread messages in the mailbox *
+# %N   N if mailbox has new mail, blank otherwise
+# %>X  right justify the rest of the string and pad with character ``X''
+# %|X  pad to the end of the line with character ``X''
+# %*X  soft-fill with character ``X'' as pad
+set vfolder_format = "%6n(%6N) %f"
+set virtual_spoolfile = yes
+set nm_query_window_duration=1
+set nm_query_window_timebase="month"
+
+set query_command= "abook --mutt-query '%s'"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+
+set sidebar_visible = yes
+set sidebar_width = 35
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set mail_check_stats
+set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
+bind index,pager \ek sidebar-prev
+bind index,pager \ej sidebar-next
+bind index,pager \eo sidebar-open
+bind index,pager \ep sidebar-prev-new
+bind index,pager \en sidebar-next-new
+bind index,pager B sidebar-toggle-visible
+
+bind index,pager i noop
+bind index,pager,browser g noop
+bind index q noop
+bind index \Cf noop
+
+# General rebindings
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+bind index,pager D delete-message
+bind index,pager U undelete-message
+bind index,pager N search-opposite
+bind index,pager S sync-mailbox
+bind index,pager R group-reply
+bind index,pager H view-raw-message
+bind index,pager + entire-thread
+bind index,pager \ef vfolder-from-query
+bind index,query <space> tag-entry
+bind pager,attach h exit
+bind index \eq exit
+bind index j next-entry
+bind index k previous-entry
+bind index L limit
+bind index h noop
+bind index l display-message
+bind index gg first-entry
+bind index G last-entry
+bind index < vfolder-window-backward
+bind index > vfolder-window-forward
+bind index \031 previous-undeleted	# Mouse wheel
+bind index \005 next-undeleted		# Mouse wheel
+bind pager \031 previous-line		# Mouse wheel
+bind pager \005 next-line		# Mouse wheel
+bind pager gg top
+bind pager G bottom
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+bind browser gg top-page
+bind browser G bottom-page
+bind browser l select-entry
+macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
+bind editor <space> noop
+bind editor <Tab> complete-query
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+macro index A "<limit>all\n" "show all messages (undo limit)"
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>printf 'Enter a search term to find with notmuch: '; read x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
+macro index,pager,browser \eh "<enter-command>source ~/.neomuttrc_personal<enter>" "Load my personal mail settings"
+macro index,pager,browser \eg "<enter-command>source ~/.neomuttrc_work<enter>" "Load my work mail settings"
+
+source ~/.neomuttrc_local
+source ~/.neomuttrc_work
+

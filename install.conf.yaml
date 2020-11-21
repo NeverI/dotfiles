@@ -28,6 +28,8 @@
     ~/.config/qutebrowser/autoconfig.yml: qutebrowser/autoconfig.yml
     ~/.config/compton.cnf: compton.cnf
     ~/.config/liquidpromptrc: bash/liquidpromptrc
+    ~/.neomuttrc: neomutt/muttrc
+    ~/.mailcap: neomutt/mailcap
 
 - shell:
     - git submodule update --init --recursive
