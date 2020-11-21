@@ -1,5 +1,6 @@
 # reverse-i-search changed to hstr
-bind '"\C-r": "\e^ihh \n"'
+[[ $- =~ .*i.* ]] && bind '"\C-r": "\e0ihstr -- \C-j"'
+[[ $- =~ .*i.* ]] && bind '"\C-xk": "\C-a hstr -k \C-j"'
 
 setxkbmap -option caps:backspace
 setxkbmap -option ctrl:menu_rctrl

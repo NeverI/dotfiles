@@ -9,7 +9,7 @@ export GIT_EDITOR=nvim
 # See bash(1) for more options
 export HISTCONTROL=ignoreboth
 
-export HISTIGNORE='hh *:history*:&:man *:[ ]*:exit'
+export HISTIGNORE='hstr *:history*:&:man *:[ ]*:exit'
 export HISTSIZE=1000
 export HISTFILESIZE=5000
 
@@ -18,7 +18,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # enable colors for hstr
 # promising history search app (https://github.com/dvorka/hstr)
-export HH_CONFIG=hicolor,keywords,rawhistory
+export HSTR_CONFIG=hicolor,keywords,rawhistory
 
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
