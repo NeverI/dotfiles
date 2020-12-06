@@ -232,6 +232,11 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
 bindsym XF86TouchpadToggle exec .config/i3/scripts/touchpad-toggle.sh
 
+bindsym $mod+Tab exec --no-startup-id dunstctl close
+bindsym $mod+Shift+Tab exec --no-startup-id dunstctl history-pop
+bindsym $mod+0 exec --no-startup-id dunstctl context
+
+exec --no-startup-id dunst --config ~/.config/dunst
 exec --no-startup-id compton --config ~/.config/compton.cnf -b
 
 # class                 border|backgr|text|indicator|child_border
