@@ -53,6 +53,7 @@ bindsym $mod+shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run_i
+bindsym $mod+t exec taskmenu ~/.tasks todo.txt
 bindsym $mod+Shift+d exec i3-dmenu-desktop
 bindsym $mod+Ctrl+d exec quickrunmenu ~/.quickrun
 bindsym $mod+F1 exec projectmenu ~/workspace
