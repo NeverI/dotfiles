@@ -153,9 +153,7 @@ bindsym $mod+Ctrl+l workspace next
 focus_follows_mouse no
 workspace_auto_back_and_forth yes
 
-assign [class="Google-chrome" instance="google-chrome"] → $web
-assign [class="qutebrowser" instance="qutebrowser"] → $web
-assign [class="Thunderbird" instance="Mail"] → $mail
+assign [class="qutebrowser"] → $web
 assign [class="Mysql-workbench-bin" instance="mysql-workbench-bin"] → $workbench
 
 exec_always ~/.config/i3/scripts/gnome-keyring.sh
