@@ -30,6 +30,7 @@
     ~/.config/liquidpromptrc: bash/liquidpromptrc
     ~/.neomuttrc: neomutt/muttrc
     ~/.mailcap: neomutt/mailcap
+    ~/.config/spotify-tui/config.yml: spotify/spotify-tui_config.yml
 
 - shell:
     - git submodule update --init --recursive

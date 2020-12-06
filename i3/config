@@ -227,6 +227,10 @@ bindsym Ctrl+$mod+BackSpace mode "$mode_system"
 bindsym $mod+BackSpace exec --no-startup-id $i3lockwall
 bindcode 253 exec --no-startup-id $i3lockwall
 
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
