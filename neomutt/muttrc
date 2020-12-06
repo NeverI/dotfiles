@@ -19,7 +19,6 @@ set forward_quote = yes		# include message in forwards
 set mime_forward = no		# attachments are forwarded with mail
 set reverse_name		# reply as whomever it was to
 set include			# include message in replies
-set copy = no
 auto_view text/html
 auto_view application/pgp-encrypted
 alternative_order text/plain text/enriched text/html
@@ -28,8 +27,8 @@ set nm_db_limit = 0
 set nm_exclude_tags = ""
 set nm_open_timeout = 5
 set nm_query_type = threads
-set nm_record = no
-set nm_record_tags = ""
+set nm_record = yes
+set nm_record_tags = "sent"
 set nm_unread_tag = unread
 # This variable allows you to customize the file browser display for virtual
 # folders to your personal taste.
